@@ -15,8 +15,11 @@
     </main>
 
 
+<?php
 
-    
+
+?>
+
     <footer>
 
     </footer>
