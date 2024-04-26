@@ -4,18 +4,18 @@
 
 <main>
 
-<section class="container d-flex justify-content-center flex-lg-row flex-column align-items-center">
-    <div class="text-center">
+<section class="container d-flex justify-content-center flex-lg-row flex-column align-items-center" id="productos">
+    <div>
         <h2>Productos</h2>
         <p>Compra todo para tus amigos de 4 patas</p>
-        <button class="btn btn-warning w-100">Comprar</button>
+        <button class="btn">Comprar</button>
     </div>
-    <img src="img/pedigree.jpeg" alt="Foto publicitaria de Pedigree" class="col-lg-6 mt-5 mt-lg-0 img-fluid">
+    <img src="img/pedigree.jpeg" alt="Foto publicitaria de Pedigree" class="col-lg-6 img-fluid">
 </section>
 
-    <section class="container-fluid bg-warning py-5">
+    <section id="servicios-container">
         <div class="container">
-            <h2 class="text-center mb-4">Servicios</h2>
+            <h2>Servicios</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-4 mb-4">
                     <div class="card text-center p-3 h-100 d-flex flex-column">

@@ -1,0 +1,27 @@
+:root {
+  --color-primario: #ffa600; /* Rojo */
+  --color-secundario: #00ff00; /* Verde */
+}
+
+/* Home Productos */
+
+#productos button {
+  background-color: var(--color-primario);
+  width: 300px;
+}
+#productos div {
+  text-align: center;
+}
+
+/* Home Servicios */
+#servicios-container {
+  background-color: var(--color-primario);
+  padding: 100px 30px;
+  width: 100%;
+}
+
+#servicios-container h2 {
+  margin-bottom: 100px;
+  font-size: 3em;
+  text-align: center;
+}
