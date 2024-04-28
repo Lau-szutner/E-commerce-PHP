@@ -3,16 +3,21 @@
   --color-secundario: #00ff00; /* Verde */
 }
 
-/* Home Productos */
-
-main {
+/* Contenedores */
+.seccionContenedor {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+
+
+/* Home Productos */
+
+
+
 #productoSeccion {
-  margin: 0;
+   
 }
 #productos button {
   background-color: var(--color-primario);
@@ -29,9 +34,18 @@ main {
   justify-content: center;
 }
 
-.card {
+#productoSeccion .card {
+  max-width: 450px;
+  min-width: 300px; 
+
+  width: 100%; 
+  margin: 20px; 
 }
 
+.item {
+  max-width: 100%;
+  height: auto;
+}
 
 /* Home Servicios */
 #servicios-container {
