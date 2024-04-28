@@ -3,6 +3,11 @@
   --color-secundario: #00ff00; /* Verde */
 }
 
+.bg-amarillo {
+  background-color: var(--color-primario);
+}
+
+
 /* Contenedores */
 .seccionContenedor {
   display: flex;
@@ -69,5 +74,6 @@
 form {
   display: flex;
   flex-direction: column;
-  
+
 }
+

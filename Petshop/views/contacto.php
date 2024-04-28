@@ -2,7 +2,7 @@
 <h1 class="text-center">Contacto</h1>
 <section class="container seccionContenedor">
     <div class="row row-cols-md-2"> 
-           
+
         <form action="procesar.php" method="get" class="col">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
@@ -25,7 +25,7 @@
 
             <label for="mensaje">Mensaje:</label>
             <textarea id="mensaje" name="mensaje" rows="4" cols="50"required></textarea>
-            <input type="submit" value="Enviar">
+            <input type="submit" value="Enviar" class="btn bg-amarillo">
 
 
         </form>
