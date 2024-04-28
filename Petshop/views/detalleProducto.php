@@ -1,14 +1,13 @@
 <?php
 require __DIR__.'/../biblioteca/productos.php';
 
+// buscamos por id pedido
 
-//buscamos por id pedido
-
-$producto = productoPorId($_GET['id']); 
+$producto = productoPorId($_GET['id']);
 
 ?>
 
-    <section id="detalle">
+    <section class="container">
         <div class="row">
             <picture class="col-md-6">
                 <img src=<?php echo $producto['imagen']; ?>>
@@ -18,18 +17,19 @@ $producto = productoPorId($_GET['id']);
                 <p><?php echo $producto['descripcion']; ?> </p>
                 <p><?php echo '$'.$producto['precio']; ?></p>
                 <p><?php if ($producto['disponibilidad']) {
-                        echo 'DISPONIBLE';
-                    } else {
-                        echo 'SIN STOCK';
-                    } ?> </p>
+                    echo 'DISPONIBLE';
+                } else {
+                    echo 'SIN STOCK';
+                } ?> </p>
             </article>
         </div>
-    </section> 
-    <section class="infoProducto">
+    <article class="infoProducto row">
         <h3>Descripción</h3>
-        <div><?= $producto['cuerpo']; ?></div>
+        <div><?php echo $producto['cuerpo']; ?></div>
 
-    </section>
+    </article> 
+    </section> 
+       
 
 
 
