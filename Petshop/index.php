@@ -51,7 +51,7 @@ $rutaConfig = $rutas[$vista];
       <nav class="container-fluid d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 bg-warning">
         <div class="col-md-3 mb-2 mb-md-0">
           <a href="index.php?seccion=home" class="d-inline-flex link-body-emphasis text-decoration-none fs-5">
-            PetShop
+            <img src="img/logoInvertido.png" alt="logo">
           </a>
         </div>
 
