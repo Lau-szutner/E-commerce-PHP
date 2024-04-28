@@ -1,11 +1,40 @@
-<h1>Pagina de prueba</h1>
+<?php
+// require __DIR__.'/../data/productos.php';
+require __DIR__.'/../biblioteca/productos.php';
+$productos = productosTodos();
+?>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas aut blanditiis optio tempore, fuga cupiditate eos voluptatibus rem numquam aperiam, nam animi quos delectus quis. Eaque dicta, harum ipsum atque autem aliquam. Reprehenderit doloribus ut id nulla ratione suscipit quae repellat commodi hic ducimus in possimus molestias distinctio ipsa, quasi placeat sed necessitatibus officiis nostrum rem dolores ipsam explicabo iure accusantium. Dignissimos vel reiciendis quia repellendus, accusamus dolores fugiat? Quas eius, blanditiis ex architecto, magnam nostrum similique nobis a asperiores veritatis quasi laudantium, nam beatae incidunt culpa atque cum. Totam eos quae voluptate et. Iste quasi ullam laboriosam corporis unde.</p>
 
-<h1>Pagina de prueba</h1>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas aut blanditiis optio tempore, fuga cupiditate eos voluptatibus rem numquam aperiam, nam animi quos delectus quis. Eaque dicta, harum ipsum atque autem aliquam. Reprehenderit doloribus ut id nulla ratione suscipit quae repellat commodi hic ducimus in possimus molestias distinctio ipsa, quasi placeat sed necessitatibus officiis nostrum rem dolores ipsam explicabo iure accusantium. Dignissimos vel reiciendis quia repellendus, accusamus dolores fugiat? Quas eius, blanditiis ex architecto, magnam nostrum similique nobis a asperiores veritatis quasi laudantium, nam beatae incidunt culpa atque cum. Totam eos quae voluptate et. Iste quasi ullam laboriosam corporis unde.</p>
+<h1>Productos</h1>
+<section class=" container" id="productoSeccion">
+    <div class= "row d-flex">
+    <?php
+    foreach ($productos as $producto) { // acá irian los dos puntos del foreach pero debo tener activado una extension porque VSC me lo autocorrige
+        ?>
+        
+        <div class="card col-md-4">
+            <article class="contenidoCard">
+                <picture class="item">
+                    <img src=<?php echo $producto['imagen']; ?> alt="<?php echo $producto['nombre']; ?>">                 
+                <a href="index.php?seccion=detalleProducto&id=<?php echo $producto['id']; ?>">
+                    <h2> <?php echo $producto['nombre']; ?> </h2>
+                </a>
+                <p><?php echo $producto['descripcion']; ?> </p>
+                <p><?php echo '$'.$producto['precio']; ?></p>
+                <p><?php if ($producto['disponibilidad']) {
+                    echo 'DISPONIBLE';
+                } else {
+                    echo 'SIN STOCK';
+                } ?> </p>
+            </article>
+            <a href="index.php?seccion=detalleProducto&id=<?php echo $producto['id']; ?>"><button>Ver Detalle</button></a>
+            <button>Comprar</button>
+        </div>
+        
 
-<h1>Pagina de prueba</h1>
-
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas aut blanditiis optio tempore, fuga cupiditate eos voluptatibus rem numquam aperiam, nam animi quos delectus quis. Eaque dicta, harum ipsum atque autem aliquam. Reprehenderit doloribus ut id nulla ratione suscipit quae repellat commodi hic ducimus in possimus molestias distinctio ipsa, quasi placeat sed necessitatibus officiis nostrum rem dolores ipsam explicabo iure accusantium. Dignissimos vel reiciendis quia repellendus, accusamus dolores fugiat? Quas eius, blanditiis ex architecto, magnam nostrum similique nobis a asperiores veritatis quasi laudantium, nam beatae incidunt culpa atque cum. Totam eos quae voluptate et. Iste quasi ullam laboriosam corporis unde.</p>
+    <?php
+    } // esto sería el endforeach pero debo tener activado una extension porque VSC me lo autocorrige
+?>
+</div>
+</section>

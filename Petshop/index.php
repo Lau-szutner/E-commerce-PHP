@@ -1,6 +1,6 @@
 <?php
 
-
+// whitelist
 $rutas = [
     'home' => [
         'titulo' => 'Programacion II Parcial 1',
@@ -8,21 +8,24 @@ $rutas = [
     'productos' => [
         'titulo' => 'Productos',
     ],
-    'Servicios' => [
+    'servicios' => [
         'titulo' => 'Nuestros Servicios',
     ],
-    'Tiendas' => [
-        'titulo' => 'Nuestras Tiendas',
+    'contacto' => [
+        'titulo' => 'Contactanos',
     ],
     '404' => [
         'titulo' => 'Página no Encontrada',
     ],
-];
+    'detalleProducto' => [
+      'titulo' => 'Detalle del Producto',
+    ],
+    ];
 
 $vista = $_GET['seccion'] ?? 'home';
 
 // Verificamos si la vista que nos están pidiendo se permite.
-if(!isset($rutas[$vista])) {
+if (!isset($rutas[$vista])) {
     $vista = '404';
 }
 
@@ -35,10 +38,11 @@ $rutaConfig = $rutas[$vista];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $rutaConfig['titulo'];?></title>
+    <title><?php echo $rutaConfig['titulo']; ?></title>
     <link rel="stylesheet" href="./styles/normalize.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./img/icons/favicon.png" >
     
 </head>
 <body class="">
@@ -54,8 +58,8 @@ $rutaConfig = $rutas[$vista];
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
           <li><a href="index.php?seccion=home" class="nav-link px-2 text-black">Home</a></li>
           <li><a href="index.php?seccion=productos" class="nav-link px-2 text-black">Productos</a></li>
-          <li><a href="#" class="nav-link px-2 text-black">Servicios</a></li>
-          <li><a href="#" class="nav-link px-2 text-black">Tiendas</a></li>
+          <li><a href="index.php?seccion=servicios" class="nav-link px-2 text-black">Servicios</a></li>
+          <li><a href="index.php?seccion=contacto" class="nav-link px-2 text-black">Contacto</a></li>
         </ul>
 
         <div class="col-md-3 text-end"> 
@@ -66,12 +70,13 @@ $rutaConfig = $rutas[$vista];
   
     <main>
         <?php
-          require __DIR__ . "/views/" . $vista . ".php";
-        ?>
+          require __DIR__.'/views/'.$vista.'.php';
+?>
 
     </main>
 
     <footer>
+
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
