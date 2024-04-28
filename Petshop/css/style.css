@@ -16,7 +16,9 @@
 
 
 
-#productoSeccion {
+#sectionProductos {
+  display: flex;
+  margin: 2rem;
    
 }
 #productos button {
@@ -31,20 +33,23 @@
 /*---------------------------------tarjetas--*/
 .contenidoCard {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-#productoSeccion .card {
-  max-width: 450px;
-  min-width: 300px; 
+#sectionProductos > div .card {
 
-  width: 100%; 
-  margin: 20px; 
+  margin: 1rem; 
+  padding: 1rem;
 }
 
 .item {
   max-width: 100%;
   height: auto;
+}
+
+.item > img {
+  width: 100%;
 }
 
 /* Home Servicios */

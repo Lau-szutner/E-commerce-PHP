@@ -6,35 +6,42 @@ $productos = productosTodos();
 
 
 
-<h1>Productos</h1>
-<section class=" container" id="productoSeccion">
-    <div class= "row d-flex">
+<h1 class="text-center">Productos</h1>
+<section id="sectionProductos" class="container">
+    <div class="row row-cols-1 row-cols-md-3">
+    
     <?php
     foreach ($productos as $producto) { // acá irian los dos puntos del foreach pero debo tener activado una extension porque VSC me lo autocorrige
         ?>
-        
-        <div class="card col-md-4">
-            <article class="contenidoCard">
-                <picture class="item">
-                    <img src=<?php echo $producto['imagen']; ?> alt="<?php echo $producto['nombre']; ?>">                 
-                <a href="index.php?seccion=detalleProducto&id=<?php echo $producto['id']; ?>">
-                    <h2> <?php echo $producto['nombre']; ?> </h2>
-                </a>
-                <p><?php echo $producto['descripcion']; ?> </p>
-                <p><?php echo '$'.$producto['precio']; ?></p>
-                <p><?php if ($producto['disponibilidad']) {
-                    echo 'DISPONIBLE';
-                } else {
-                    echo 'SIN STOCK';
-                } ?> </p>
-            </article>
-            <a href="index.php?seccion=detalleProducto&id=<?php echo $producto['id']; ?>"><button>Ver Detalle</button></a>
-            <button>Comprar</button>
+        <div class="col"> 
+            <div class="card">
+                <article class="contenidoCard">
+                    <picture class="item">
+                        <img src=<?php echo $producto['imagen']; ?> alt="<?php echo $producto['nombre']; ?>"> 
+                    </picture>                
+                    <a href="index.php?seccion=detalleProducto&id=<?php echo $producto['id']; ?>">
+                        <h2> <?php echo $producto['nombre']; ?> </h2>
+                    </a>
+                    <div>
+                        <p><?php echo $producto['descripcion']; ?> </p>
+                        <p><?php echo '$'.$producto['precio']; ?></p>
+                        <p><?php if ($producto['disponibilidad']) {
+                            echo 'DISPONIBLE';
+                        } else {
+                            echo 'SIN STOCK';
+                        } ?> </p>
+                    </div>
+                
+                    <a href="index.php?seccion=detalleProducto&id=<?php echo $producto['id']; ?>"><button>Ver Detalle</button></a>
+                    <button>Comprar</button>
+                </article>
+            </div>
         </div>
         
 
     <?php
     } // esto sería el endforeach pero debo tener activado una extension porque VSC me lo autocorrige
 ?>
+
 </div>
 </section>
