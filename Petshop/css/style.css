@@ -77,3 +77,14 @@ form {
 
 }
 
+
+/*--------------------------------------- FOOTER */
+#footer{
+  background-color: rgb(29, 29, 29);
+  color: white;
+  margin: 0;
+}
+
+.iconos>a> img {
+  width: 30px;
+}

@@ -75,8 +75,20 @@ $rutaConfig = $rutas[$vista];
 
     </main>
 
-    <footer>
-
+    <footer id="footer" >
+      <div class="infoFooter">
+          <picture>
+            <img src="img/logo2.png" alt="logo">
+          </picture>
+          <p>PAW Petshop<p>
+          <div class="iconos">
+            <a href="#"><img src="img/icons/facebook.png" alt="icono de facebook"></a>
+            <a href="#"><img src="img/icons/instagram.png" alt="icono de instagram"></a>
+            <a href="#"><img src="img/icons/youtube.png" alt="icono de youtube"></a>
+          </div>
+        </div>
+      </div>
+      
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
