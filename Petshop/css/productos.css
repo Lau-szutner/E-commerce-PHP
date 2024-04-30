@@ -1,3 +1,25 @@
+/*---------------------------------tarjetas--*/
+
+.contenidoCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#sectionProductos > div .card {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.item {
+  max-width: 100%;
+  height: auto;
+}
+
+.item > img {
+  width: 100%;
+}
+
 /* Cambiar */
 
 #sectionProductos {

@@ -1,29 +1,20 @@
+@import url("productos.css");
+@import url("./contacto.css");
+
 :root {
   --color-primario: #ffa600; /* Rojo */
   --color-secundario: #00ff00; /* Verde */
 }
-
-.bg-amarillo {
-  background-color: var(--color-primario);
-}
-
+/* NAV BAR */
 nav img {
-  width: 60%;
+  width: 70%;
 }
 
 nav {
   background-color: var(--color-primario);
 }
 
-/* Contenedores */
-.seccionContenedor {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 /* Home Productos */
-
 #productos button {
   background-color: var(--color-primario);
   width: 300px;
@@ -34,27 +25,6 @@ nav {
 
 #productos {
   margin-top: 130px;
-}
-
-/*---------------------------------tarjetas--*/
-.contenidoCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#sectionProductos > div .card {
-  margin: 1rem;
-  padding: 1rem;
-}
-
-.item {
-  max-width: 100%;
-  height: auto;
-}
-
-.item > img {
-  width: 100%;
 }
 
 /* Home Servicios */
@@ -71,10 +41,6 @@ nav {
 }
 
 /*--------------------------------------------- FORM  */
-form {
-  display: flex;
-  flex-direction: column;
-}
 
 /*--------------------------------------- FOOTER */
 #footer {
@@ -91,4 +57,8 @@ form {
   #login {
     display: none;
   }
+}
+
+header {
+  width: 10px;
 }
