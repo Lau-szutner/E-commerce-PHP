@@ -1,0 +1,27 @@
+/* Cambiar */
+
+#sectionProductos {
+  margin-top: 200px;
+  background-color: var(--color-primario);
+  height: max-content;
+}
+
+#sectionProductos h1 {
+  margin: 50px;
+  font-size: 3em;
+}
+
+.productos-btn {
+  border-radius: 5px;
+  background-color: #212529;
+  color: white;
+  padding: 5px;
+  width: 100%;
+  margin: 5px;
+  border: none;
+}
+
+.productos-btn a {
+  color: white;
+  text-decoration: initial; /* Restablece la decoración del texto */
+}

@@ -7,6 +7,13 @@
   background-color: var(--color-primario);
 }
 
+nav img {
+  width: 60%;
+}
+
+nav {
+  background-color: var(--color-primario);
+}
 
 /* Contenedores */
 .seccionContenedor {
@@ -15,17 +22,8 @@
   align-items: center;
 }
 
-
-
 /* Home Productos */
 
-
-
-#sectionProductos {
-  display: flex;
-  margin: 2rem;
-   
-}
 #productos button {
   background-color: var(--color-primario);
   width: 300px;
@@ -34,6 +32,9 @@
   text-align: center;
 }
 
+#productos {
+  margin-top: 130px;
+}
 
 /*---------------------------------tarjetas--*/
 .contenidoCard {
@@ -43,8 +44,7 @@
 }
 
 #sectionProductos > div .card {
-
-  margin: 1rem; 
+  margin: 1rem;
   padding: 1rem;
 }
 
@@ -74,17 +74,21 @@
 form {
   display: flex;
   flex-direction: column;
-
 }
 
-
 /*--------------------------------------- FOOTER */
-#footer{
+#footer {
   background-color: rgb(29, 29, 29);
   color: white;
   margin: 0;
 }
 
-.iconos>a> img {
+.iconos > a > img {
   width: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  #login {
+    display: none;
+  }
 }
