@@ -18,7 +18,7 @@ $productos = productosTodos();
                         <picture class="item">
                             <img src=<?php echo $producto['imagen']; ?> alt="<?php echo $producto['nombre']; ?>">
                         </picture>
-                        <a href="index.php?seccion=detalleProducto&id=<?php echo $producto['id']; ?>">
+                        <a id="link" href="index.php?seccion=detalleProducto&id=<?php echo $producto['id']; ?>">
                             <h2> <?php echo $producto['nombre']; ?> </h2>
                         </a>
                         <div>

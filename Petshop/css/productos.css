@@ -47,3 +47,8 @@
   color: white;
   text-decoration: initial; /* Restablece la decoración del texto */
 }
+
+#link {
+  color: #212529;
+  text-decoration: none;
+}
