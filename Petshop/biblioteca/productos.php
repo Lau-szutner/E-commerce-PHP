@@ -108,14 +108,15 @@ function productosTodos(): array
 }
 
 
-function productoPorId(int $id): array|null {
+function productoPorId(int $id): array|null
+{
     //poner base de datos. 
     //trae todas los productos y filtra la que coincide con el argumento 
     $productos = productosTodos();
-    foreach ($productos as $producto){
+    foreach ($productos as $producto) {
         if ($producto['id'] === $id) {
             return $producto;
-        } 
+        }
     };
 }
 
