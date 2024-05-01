@@ -1,12 +1,27 @@
 /* Contenedores */
 .seccionContenedor {
-  margin-top: 100px;
+  margin-top: 190px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+.seccionContenedor h1 {
+  margin-bottom: 60px;
+}
+
+#contactoForm {
+  background-color: var(--color-primario);
+  border-radius: 10px;
+  height: max-content;
+}
+
+#contactoForm button {
+  margin: 20px 0px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #212529;
+  color: white;
+  width: 100%;
+  border: none;
 }

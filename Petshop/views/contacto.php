@@ -2,7 +2,7 @@
     <h1 class="text-center">Contacto</h1>
     <div class="row row-cols-md-2">
 
-        <form action="procesar.php" method="get" class="col">
+        <form action="procesar.php" method="get" class="col d-flex flex-column" id="contactoForm">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
 
@@ -24,7 +24,7 @@
 
             <label for="mensaje">Mensaje:</label>
             <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea>
-            <input type="submit" value="Enviar" class="btn bg-amarillo">
+            <button type="submit">Enviar</button>
 
 
         </form>
