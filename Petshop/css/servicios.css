@@ -2,3 +2,8 @@
   background-color: var(--color-primario);
   margin-top: 140px;
 }
+
+.serviciosLista {
+  list-style: none;
+  text-decoration: none;
+}
