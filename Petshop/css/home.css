@@ -1,5 +1,6 @@
 @import url("productos.css");
-@import url("./contacto.css");
+@import url("contacto.css");
+@import url("servicios.css");
 
 :root {
   --color-primario: #ffa600; /* Rojo */
@@ -28,14 +29,13 @@ nav {
 }
 
 /* Home Servicios */
-#servicios-container {
+#servicios-container-home {
   background-color: var(--color-primario);
-  padding: 100px 30px;
+
   width: 100%;
 }
 
-#servicios-container h2 {
-  margin-bottom: 100px;
+#servicios-container-home h2 {
   font-size: 3em;
   text-align: center;
 }

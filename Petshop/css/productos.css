@@ -23,14 +23,9 @@
 /* Cambiar */
 
 #sectionProductos {
-  margin-top: 200px;
   background-color: var(--color-primario);
   height: max-content;
-}
-
-#sectionProductos h1 {
-  margin: 50px;
-  font-size: 3em;
+  margin-top: 140px;
 }
 
 .productos-btn {
@@ -43,12 +38,22 @@
   border: none;
 }
 
-.productos-btn a {
-  color: white;
-  text-decoration: initial; /* Restablece la decoración del texto */
-}
-
 #link {
   color: #212529;
   text-decoration: none;
+}
+
+.productos-btn button {
+  border-radius: 5px;
+  background-color: #212529;
+  color: white;
+
+  width: 100%;
+  border: none;
+}
+
+/* Dettalle de producto */
+
+#detalleDePodructo {
+  margin-top: 130px;
 }

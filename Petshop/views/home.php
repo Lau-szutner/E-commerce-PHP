@@ -1,21 +1,20 @@
-
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
 
 
 <main>
 
-<section class="container d-flex justify-content-center flex-lg-row flex-column align-items-center" id="productos">
-    <div>
-        <h2>Productos</h2>
-        <p>Compra todo para tus amigos de 4 patas</p>
-        <button class="btn">Comprar</button>
-    </div>
-    <img src="img/pedigree.jpeg" alt="Foto publicitaria de Pedigree" class="col-lg-6 img-fluid">
-</section>
+    <section class="container d-flex justify-content-center flex-lg-row flex-column align-items-center" id="productos">
+        <div>
+            <h2>Productos</h2>
+            <p>Compra todo para tus amigos de 4 patas</p>
+            <button class="btn">Comprar</button>
+        </div>
+        <img src="img/pedigree.jpeg" alt="Foto publicitaria de Pedigree" class="col-lg-6 img-fluid">
+    </section>
 
-    <section id="servicios-container">
+    <section id="servicios-container-home">
         <div class="container">
-            <h2>Servicios</h2>
+            <h2 class="p-5">Servicios</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-4 mb-4">
                     <div class="card text-center p-3 h-100 d-flex flex-column">
@@ -45,5 +44,3 @@
         </div>
     </section>
 </main>
-
-
