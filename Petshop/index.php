@@ -26,7 +26,7 @@ $vista = $_GET['seccion'] ?? 'home';
 
 // Verificamos si la vista que nos están pidiendo se permite.
 if (!isset($rutas[$vista])) {
-  $vista = '404';
+    $vista = '404';
 }
 
 // Obtenemos las opciones/configuración de la ruta que corresponden a esta vista.
@@ -84,8 +84,8 @@ $rutaConfig = $rutas[$vista];
 
   <main>
     <?php
-    require __DIR__ . '/views/' . $vista . '.php';
-    ?>
+    require __DIR__.'/views/'.$vista.'.php';
+?>
 
   </main>
 
@@ -101,7 +101,6 @@ $rutaConfig = $rutas[$vista];
         <a href="#"><img src="img/icons/instagram.png" alt="icono de instagram"></a>
         <a href="#"><img src="img/icons/youtube.png" alt="icono de youtube"></a>
       </div>
-    </div>
     </div>
 
   </footer>

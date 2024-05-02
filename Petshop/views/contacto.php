@@ -13,7 +13,7 @@
             <input type="tel" id="tel" name="tel" required>
 
             <label for="motivo">¿Por qué nos contactas?</label>
-            <select id="motivo" name="motivo" required>
+            <select id="motivo" name="motivo">
                 <option value=".">Elegi tu motivo de contacto</option>
                 <option value="consulta">Consulta</option>
                 <option value="Pedido">Pedido</option>
@@ -32,7 +32,7 @@
         <picture class="col">
             <img src="img/form.png" alt="foto de formulario de contacto">
         </picture>
-
+    </div>
 
 
 </section>

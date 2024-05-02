@@ -1,7 +1,7 @@
 <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
 
 
-<main>
+
 
     <section class="container d-flex justify-content-center flex-lg-row flex-column align-items-center" id="productos">
         <div>
@@ -43,4 +43,3 @@
             </div>
         </div>
     </section>
-</main>
