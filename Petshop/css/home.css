@@ -2,6 +2,7 @@
 @import url("contacto.css");
 @import url("servicios.css");
 @import url("error.css");
+
 :root {
   --color-primario: #ffa600; /* Rojo */
   --color-secundario: #00ff00; /* Verde */

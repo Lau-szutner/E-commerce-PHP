@@ -30,7 +30,7 @@
         </form>
 
         <picture class="col">
-            <img src="img/form.png" alt="foto de formulario de contacto">
+            <img src="img/form.png" alt="Gracias por tu mensaje, nos gusta escucharte">
         </picture>
     </div>
 
