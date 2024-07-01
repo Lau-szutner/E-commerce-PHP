@@ -42,8 +42,8 @@ class Producto
     
         
             
-            $stmt->setFetchMode(PDO::FETCH_CLASS, self::class);
-            return $stmt->fetchAll();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, self::class);
+        return $stmt->fetchAll();
         
     }
 
@@ -117,6 +117,22 @@ class Producto
     public function getUsuario_fk()
     {
         return $this->usuario_fk;
+    }
+
+
+    public function productoPorId(int $producto_id): ?self {
+        $conn = (new Conexion)->obtenerConexion();
+        $consulta = "SELECT * FROM producto WHERE producto_id = " . $producto_id;
+        $stmt = $conn->prepare($consulta);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $producto = $stmt->fetch();
+
+        if (!$producto){
+            return null;
+        }
+        return $producto;
+        
     }
 }
 ?>
