@@ -122,9 +122,12 @@ class Producto
 
     public function productoPorId(int $producto_id): ?self {
         $conn = (new Conexion)->obtenerConexion();
-        $consulta = "SELECT * FROM producto WHERE producto_id = " . $producto_id;
+
+        $consulta = "SELECT * FROM producto
+                    WHERE producto_id = ?";
+
         $stmt = $conn->prepare($consulta);
-        $stmt->execute();
+        $stmt->execute([$producto_id]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, self::class);
         $producto = $stmt->fetch();
 
