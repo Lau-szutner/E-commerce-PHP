@@ -40,18 +40,10 @@ class Producto
         $stmt = $conn->prepare($consulta);
         $stmt->execute();
     
-        $productosArray = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
-        $productos = [];
-        foreach ($productosArray as $productoData) {
-            $producto = new Producto();
-            $producto->asignarDatos($productoData);
-            $productos[] = $producto;
-            }
-    
-            return $productos;
-            echo 'funcion ejecutada';
-
+        
+            
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Producto');
+            return $stmt->fetchAll();
         
     }
 
