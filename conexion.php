@@ -21,18 +21,9 @@ try {
 
 } catch (PDOException $error) {
     echo 'error de conexion: ' . $error->getMessage();
+    die ("Error al conectar con el servidor");
+    //agregar un exit que redireccione a una pagina de mantenimiento. 
 }
-
-
-
-$consulta = "SELECT * FROM producto";
-
-//modo preparacion 
-
-$stmt = $conn->prepare($consulta);
-$stmt -> execute();
-
-print_r($stmt);
 
 
 

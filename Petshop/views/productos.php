@@ -1,7 +1,10 @@
 <?php
 // require __DIR__.'/../data/productos.php';
-require __DIR__.'/../biblioteca/productos.php';
-$productos = productosTodos();
+//require __DIR__.'/../biblioteca/productos.php';
+//$productos = productosTodos();
+
+require_once __DIR__ . '/../clases/Producto.php';
+$productos = (new Producto) ->productosTodos()
 ?>
 
 
