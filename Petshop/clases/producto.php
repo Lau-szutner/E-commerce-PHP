@@ -8,12 +8,13 @@ class Producto
 {
     protected int $producto_id;
     protected string $nombre; 
-    protected string $categoria; 
-    protected string $descripcion;
+    protected string $categoria_id; 
+    protected ?string $descripcion = null;
     protected float $precio;
     protected bool $disponibilidad; 
     protected string $imagen; 
-    protected string $cuerpo;
+    protected ?string $cuerpo = null;
+    protected ?int $usuario_fk = null;
 
     public function asignarDatos (array $data): void {
         $this -> producto_id = $data['producto_id'];
@@ -24,6 +25,8 @@ class Producto
         $this -> disponibilidad = $data['disponibilidad'];
         $this -> imagen = $data['imagen'];
         $this -> cuerpo = $data['cuerpo'];
+        $this -> usuario_fk = $data['usuario_fk'];
+
     }
     
     /** 
