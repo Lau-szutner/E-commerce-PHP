@@ -6,7 +6,7 @@ require_once __DIR__ . '/Conexion.php';
 class Producto 
 // definit que tipo de datos es cada uno? 
 {
-    protected int $id;
+    protected int $producto_id;
     protected string $nombre; 
     protected string $categoria; 
     protected string $descripcion;
@@ -16,7 +16,7 @@ class Producto
     protected string $cuerpo;
 
     public function asignarDatos (array $data): void {
-        $this -> id = $data['id'];
+        $this -> producto_id = $data['producto_id'];
         $this -> nombre = $data['nombre'];
         $this -> categoria = $data['categoria'];
         $this -> descripcion = $data['descripcion'];
