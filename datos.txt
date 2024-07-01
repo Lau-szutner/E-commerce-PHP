@@ -1,0 +1,14 @@
+Alumnos: 
+-Fernandez Szutner Lautaro
+-Merlo Maria Macarena
+
+Carrera: Diseño Web 
+Materia: Programación 2
+Cuatrimestre: 3
+Año: 2024
+Turno: Tarde
+Comision DW3TAV 
+Docente: Santiago Gallino
+Carácter de entrega: 2do parcial
+
+
