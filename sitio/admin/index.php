@@ -51,7 +51,7 @@ $rutaConfig = $rutas[$vista];
     <nav class="navbar navbar-expand-md fixed-top px-5">
       <div class="container-fluid d-flex justify-content-between">
         <a href="index.php?seccion=home" class="d-inline-flex link-body-emphasis text-decoration-none fs-5">
-          <img src="img/logoInvertido.png" alt="logo">
+          <img src="../img/logoInvertido.png" alt="logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,10 +60,8 @@ $rutaConfig = $rutas[$vista];
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mx-auto">
-            <li><a href="index.php?seccion=home" class="nav-link px-2 text-black">Home</a></li>
+            <li><a href="index.php?seccion=dashboard" class="nav-link px-2 text-black">Panel</a></li>
             <li><a href="index.php?seccion=productos" class="nav-link px-2 text-black">Productos</a></li>
-            <li><a href="index.php?seccion=servicios" class="nav-link px-2 text-black">Servicios</a></li>
-            <li><a href="index.php?seccion=contacto" class="nav-link px-2 text-black">Contacto</a></li>
           </ul>
         </div>
 
@@ -89,14 +87,14 @@ $rutaConfig = $rutas[$vista];
   <footer id="footer">
     <div class="infoFooter d-flex flex-column align-items-center p-5">
       <picture>
-        <img src="img/logo2.png" alt="logo">
+        <img src="../img/logo2.png" alt="logo">
       </picture>
       <p>PAW Petshop
       <p>
       <div class="iconos d-flex gap-5">
-        <a href="#"><img src="img/icons/facebook.png" alt="icono de facebook"></a>
-        <a href="#"><img src="img/icons/instagram.png" alt="icono de instagram"></a>
-        <a href="#"><img src="img/icons/youtube.png" alt="icono de youtube"></a>
+        <a href="#"><img src="../img/icons/facebook.png" alt="icono de facebook"></a>
+        <a href="#"><img src="../img/icons/instagram.png" alt="icono de instagram"></a>
+        <a href="#"><img src="../img/icons/youtube.png" alt="icono de youtube"></a>
       </div>
     </div>
 
