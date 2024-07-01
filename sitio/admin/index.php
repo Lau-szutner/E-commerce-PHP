@@ -19,7 +19,7 @@ $rutas = [
   ],
 ];
 
-$vista = $_GET['seccion'] ?? 'home';
+$vista = $_GET['seccion'] ?? 'dashboard';
 
 // Verificamos si la vista que nos están pidiendo se permite.
 if (!isset($rutas[$vista])) {
