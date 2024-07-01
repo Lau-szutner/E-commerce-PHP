@@ -42,7 +42,7 @@ class Producto
     
         
             
-            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Producto');
+            $stmt->setFetchMode(PDO::FETCH_CLASS, self::class);
             return $stmt->fetchAll();
         
     }
