@@ -11,7 +11,7 @@ $productos = $productosObj->productosTodos();
 <section id="sectionProductos" class="container-fluid d-flex flex-column align-items-center">
     <h1 class="p-5">Administracion de productos </h1>
 
-    <div class="row">
+    <div class="row"><a href="index.php?seccion=producto-nuevo">Añadir producto</a> </div>
         <table class="col table"> 
             <thead>   
                 <tr>
@@ -41,8 +41,7 @@ $productos = $productosObj->productosTodos();
             </tbody> 
 
             
-        </div>
-    </div>
+        </table>
 </section>
 
 
