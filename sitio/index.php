@@ -26,7 +26,7 @@ $vista = $_GET['seccion'] ?? 'home';
 
 // Verificamos si la vista que nos están pidiendo se permite.
 if (!isset($rutas[$vista])) {
-    $vista = '404';
+  $vista = '404';
 }
 
 // Obtenemos las opciones/configuración de la ruta que corresponden a esta vista.
@@ -72,7 +72,9 @@ $rutaConfig = $rutas[$vista];
 
         <div id="login">
           <form class="d-flex"> <!-- Utilizamos ml-auto para enviar el botón a la izquierda -->
-            <button class="btn btn-outline-dark ">Login</button>
+            <button class="btn btn-outline-dark ">
+              <a href="./admin/index.php?seccion=login" class="nav-link px-2 text-black">login</a>
+            </button>
           </form>
         </div>
 
@@ -84,8 +86,8 @@ $rutaConfig = $rutas[$vista];
 
   <main>
     <?php
-    require __DIR__.'/views/'.$vista.'.php';
-?>
+    require __DIR__ . '/views/' . $vista . '.php';
+    ?>
 
   </main>
 

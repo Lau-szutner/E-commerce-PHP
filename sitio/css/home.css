@@ -63,3 +63,7 @@ nav {
 header {
   width: 10px;
 }
+
+#login li {
+  list-style: none;
+}
