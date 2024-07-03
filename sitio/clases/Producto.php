@@ -124,7 +124,7 @@ class Producto
         $conn = (new Conexion)->obtenerConexion();
 
         $consulta = "SELECT * FROM producto
-                    WHERE producto_id = ?";
+                    WHERE producto_id = ?";  //holder
 
         $stmt = $conn->prepare($consulta);
         $stmt->execute([$producto_id]);
@@ -136,6 +136,49 @@ class Producto
         }
         return $producto;
         
+    }
+
+    //guarda el producto en bd
+    public function crear(array $data){
+        $conn = (new Conexion)->obtenerConexion();
+        $consulta = "INSERT INTO producto (nombre, 
+                                            descripcion, 
+                                            cuerpo, 
+                                            precio, 
+                                            categoria_id, 
+                                            imagen, 
+                                            usuario_fk)
+                    VALUES (:nombre, 
+                            :descripcion, 
+                            :cuerpo, 
+                            :precio, 
+                            :categoria_id, 
+                            :imagen, 
+                            :usuario_fk) ";
+         
+        $stmt = $conn->prepare($consulta);
+        $stmt->execute([
+            'nombre'        => $data['nombre'],
+            'descripcion'   => $data['descripcion'],
+            'cuerpo'        => $data['cuerpo'],
+            'precio'        => $data['precio'],
+            'categoria_id'  => $data['categoria_id'],
+            'imagen'        => $data['imagen'],
+            'usuario_fk'    => $data['usuario_fk']
+        ]);
+    }
+
+
+    public function eliminar(int $pk): bool {
+        $conn = (new Conexion)->obtenerConexion();
+
+        $consulta = "DELETE FROM producto
+                    WHERE producto_id = ?";  //holder
+
+        $stmt = $conn->prepare($consulta);
+        $stmt->execute([$pk]);
+        
+        return true;
     }
 }
 ?>

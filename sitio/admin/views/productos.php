@@ -20,6 +20,7 @@ $productos = $productosObj->productosTodos();
                     <th>Precio</th>
                     <th>Disponibilidad</th>
                     <th>Descripción</th>
+                    <th>Categoría</th>
                     <th>Imagen</th>
                     <th>Acciones</th>
                 </tr>
@@ -34,8 +35,14 @@ $productos = $productosObj->productosTodos();
                     <td><?= $producto->getPrecio(); ?> </td>
                     <td><?= $producto->getDisponibilidad(); ?> </td>
                     <td><?= $producto->getDescripcion(); ?> </td>
-                    <td><img src= " <?= '../img/' . $producto->getImagen();?>" alt="" </td>
-                    <td> Ya lo vamos a hacer&trade; </td>
+                    <td><?= $producto->getCategoria_id(); ?> </td>
+                    <td><img src= " <?= '../' . $producto->getImagen();?>" alt=""> </td>
+                    <td> 
+                        <div class="d-flex">
+                            <a href="index.php?seccion=producto-editar&id=<?= $producto->getProducto_id(); ?>" class="btn btn-warning mr-2">Editar</a>
+                            <a href="index.php?seccion=producto-eliminar&id=<?= $producto->getProducto_id(); ?>" class="btn btn-danger">Eliminar</a>
+                        </div>  
+                    </td>
                 </tr>
             <?php endforeach; ?>
             </tbody> 

@@ -1,15 +1,15 @@
 <?php
-
 //copia del index
+session_start();
 $rutas = [
   'dashboard' => [
     'titulo' => 'Panel',
   ],
   'productos' => [
     'titulo' => 'Productos',
-  ],
-  'iniciar-sesion' => [
-    'titulo' => 'Ingresar al panel',
+    ],
+  'login' => [
+    'titulo' => 'Iniciar sesion',
   ],
   '404' => [
     'titulo' => 'Página no Encontrada',
@@ -17,8 +17,8 @@ $rutas = [
   'detalleProducto' => [
     'titulo' => 'Detalle del Producto',
   ],
-  'login' => [
-    'titulo' => 'Iniciar sesion',
+  'producto-nuevo' => [
+    'titulo' => 'Añadir Producto',
   ],
 ];
 
@@ -26,11 +26,19 @@ $vista = $_GET['seccion'] ?? 'dashboard';
 
 // Verificamos si la vista que nos están pidiendo se permite.
 if (!isset($rutas[$vista])) {
-  $vista = '404';
+    $vista = '404';
 }
 
 // Obtenemos las opciones/configuración de la ruta que corresponden a esta vista.
 $rutaConfig = $rutas[$vista];
+
+
+$mensajeFeedback = $_SESSION['mensajeFeedback'] ?? null;
+unset($_SESSION['mensajeFeedback']);
+
+$feedbackTipo = $_SESSION['feedback-tipo'] ?? 'info';
+unset($_SESSION['feedback-tipo']);
+
 ?>
 
 <!DOCTYPE html>
@@ -48,8 +56,16 @@ $rutaConfig = $rutas[$vista];
 
 </head>
 
-<body>
-
+<body class="mt-5">
+      <?php
+        if($mensajeFeedback !== null):
+        ?>
+            <div class="alert alert-danger" role="alert"">
+                <?= $mensajeFeedback;?>
+            </div>
+        <?php
+        endif;
+        ?> */ 
   <header>
     <nav class="navbar navbar-expand-md fixed-top px-5">
       <div class="container-fluid d-flex justify-content-between">
@@ -70,7 +86,7 @@ $rutaConfig = $rutas[$vista];
 
         <div id="login">
           <form class="d-flex"> <!-- Utilizamos ml-auto para enviar el botón a la izquierda -->
-            <a href="index.php?seccion=login" class="nav-link px-2 text-black">login</a>
+            <button class="btn btn-outline-dark ">Login</button>
           </form>
         </div>
 
@@ -80,10 +96,10 @@ $rutaConfig = $rutas[$vista];
 
   </header>
 
-  <main>
+  <main class="mt-5">
     <?php
-    require __DIR__ . '/views/' . $vista . '.php';
-    ?>
+    require __DIR__.'/views/'.$vista.'.php';
+?>
 
   </main>
 
