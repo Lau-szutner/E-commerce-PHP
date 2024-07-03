@@ -53,9 +53,12 @@ try { //anadir con clase Producto
     ]);
     //redirecciona a otra pantalla
     $_SESSION ['mensajeFeedback'] = 'El producto fue añadido exitosamente';
+    $_SESSION['feedback-tipo'] = "success";
     header('Location: ../index.php?seccion=productos');
     exit;
 } catch (Exception $th) {
+    $_SESSION['feedback-mensaje'] = "El producto no se pudo publicar correctamente";
+    $_SESSION['feedback-tipo'] = "error";
     header('Location: ../index.php?seccion=producto-nuevo');
 }
 
