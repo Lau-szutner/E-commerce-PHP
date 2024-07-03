@@ -15,7 +15,7 @@ $dataVieja = $_SESSION['data-vieja'] ?? [];
 
     <h1 class="pt-5">Editar producto</h1>
 
-    <form action="acciones/producto-editar.php?id=<?= $producto->getProducto_id(); ?>" method="post" enctype="multipart/form-data">
+    <form action="acciones/producto-editar.php?producto_id=<?= $producto->getProducto_id(); ?>" method="post" enctype="multipart/form-data">
             <div class="form-fila">
                 <label for="nombre">Nombre</label>
                 <input
@@ -88,11 +88,7 @@ $dataVieja = $_SESSION['data-vieja'] ?? [];
                     <option value="0" <?= !$producto->getDisponibilidad() ? 'selected' : ''; ?>>No Disponible</option>
                 </select>
             </div>
-            <div class="form-fila">
-                <label for="imagen">Imagen <span class="small normal">(opcional)</span></label>
-                <input type="file" id="imagen" name="imagen" class="form-control" aria-describedby="help-imagen">
-                <div class="form-help" id="help-imagen">Solo elige una imagen si deseas cambiar la actual.</div>
-            </div>
+    
             
             <div class="form-fila">
                 <label for="categoria_id">Categoría</label>

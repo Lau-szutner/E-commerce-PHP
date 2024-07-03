@@ -46,6 +46,32 @@ class Producto
         return $stmt->fetchAll();
         
     }
+    public function actualizar() {
+        $conn = (new Conexion)->obtenerConexion();
+        
+        $consulta = "UPDATE productos 
+                    SET 
+                        nombre      = :nombre, 
+                        descripcion = :descripcion, 
+                        cuerpo      = :cuerpo, 
+                        precio      = :precio, 
+                        disponibilidad = :disponibilidad, 
+                        categoria_id = :categoria_id
+                    WHERE producto_id = :producto_id";
+
+        $stmt = $conn->prepare($consulta);
+        
+        $stmt->bindValue(':nombre', $this->nombre, PDO::PARAM_STR);
+        $stmt->bindValue(':descripcion', $this->descripcion, PDO::PARAM_STR);
+        $stmt->bindValue(':cuerpo', $this->cuerpo, PDO::PARAM_STR);
+        $stmt->bindValue(':precio', $this->precio, PDO::PARAM_STR);
+        $stmt->bindValue(':disponibilidad', $this->disponibilidad, PDO::PARAM_INT);
+        $stmt->bindValue(':categoria_id', $this->categoria_id, PDO::PARAM_INT);
+        $stmt->bindValue(':producto_id', $this->producto_id, PDO::PARAM_INT);
+
+
+        return $stmt->execute();
+    }
 
     /**
      * Get the value of producto_id
