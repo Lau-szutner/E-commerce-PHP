@@ -20,6 +20,9 @@ $rutas = [
   'producto-nuevo' => [
     'titulo' => 'Añadir Producto',
   ],
+  'producto-editar' => [
+    'titulo' => 'Editar producto',
+  ],
 ];
 
 $vista = $_GET['seccion'] ?? 'dashboard';

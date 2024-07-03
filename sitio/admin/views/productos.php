@@ -39,7 +39,7 @@ $productos = $productosObj->productosTodos();
                     <td><img src= " <?= '../' . $producto->getImagen();?>" alt=""> </td>
                     <td> 
                         <div class="d-flex">
-                            <a href="index.php?seccion=producto-editar&id=<?= $producto->getProducto_id(); ?>" class="btn btn-warning mr-2">Editar</a>
+                            <a href="index.php?seccion=producto-editar&producto_id=<?= $producto->getProducto_id(); ?>" class="btn btn-warning mr-2">Editar</a>
                             <!--<a href="index.php?seccion=producto-eliminar&id=<?= $producto->getProducto_id(); ?>" class="btn btn-danger">Eliminar</a> !-->
                             <form action="acciones/producto-eliminar.php" method="get">
                                 <input type="hidden" name="producto_id" value="<?= $producto->getProducto_id(); ?>">
