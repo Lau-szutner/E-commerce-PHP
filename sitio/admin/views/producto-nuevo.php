@@ -26,11 +26,11 @@ unset($_SESSION['errores']);
         </div>
         <div>
             <label for="descripcion">Descripción</label>
-            <input type="text" id="descripcion" name="descripcion">
+            <textarea id="descripcion" name="descripcion" placeholder="Ingrese una descripción corta del producto aquí"></textarea>
         </div>
         <div>
             <label for="cuerpo">Cuerpo</label>
-            <input type="text" id="cuerpo" name="cuerpo">
+            <textarea id="cuerpo" name="cuerpo" placeholder="Ingrese una descripción más detallada. Añada toda la información relevante sobre el producto."></textarea>
         </div>
         <div>
             <label for="precio">Precio</label>
