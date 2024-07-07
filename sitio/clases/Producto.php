@@ -12,9 +12,10 @@ class Producto
     protected ?string $descripcion = null;
     protected float $precio;
     protected bool $disponibilidad; 
-    protected string $imagen; 
+    protected ?string $imagen = null;
     protected ?string $cuerpo = null;
     protected ?int $usuario_fk = null;
+
 
     public function asignarDatos (array $data): void {
         $this->producto_id = $data['producto_id'];

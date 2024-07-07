@@ -36,7 +36,7 @@ $productos = $productosObj->productosTodos();
                     <td><?= $producto->getDisponibilidad(); ?> </td>
                     <td><?= $producto->getDescripcion(); ?> </td>
                     <td><?= $producto->getCategoria_id(); ?> </td>
-                    <td><img src= " <?= '../' . $producto->getImagen();?>" alt=""> </td>
+                    <td><img src= " <?= '../' . $producto->getImagen();?>" alt="<?= $producto->getNombre();?>" </td>
                     <td> 
                         <div class="d-flex">
                             <a href="index.php?seccion=producto-editar&producto_id=<?= $producto->getProducto_id(); ?>" class="btn btn-warning mr-2">Editar</a>
