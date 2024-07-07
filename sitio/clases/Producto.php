@@ -3,9 +3,8 @@
 
 require_once __DIR__ . '/Conexion.php';
 
-class Producto 
-// definit que tipo de datos es cada uno? 
-{
+class Producto {
+    
     protected int $producto_id;
     protected string $nombre; 
     protected string $categoria_id; 
@@ -29,7 +28,6 @@ class Producto
         $this->usuario_fk = $data['usuario_fk'];
 
     }
-    
     /** 
     *@return self[]
     */ 

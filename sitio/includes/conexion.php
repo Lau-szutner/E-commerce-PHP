@@ -18,8 +18,11 @@ try {
     //configurar el modo de excepcion
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "conexion establecida";
-} catch (PDOException $error) {
-    echo 'error de conexion: ' . $error->getMessage();
+} catch (Exception $e) {
+    echo "<p>Error de conexion: {$e->getMessage()} </p>";
+    echo "<p>En el archivo: {$e->getFile()} </p>";
+    echo "<p>En la linea: {$e->getLine()} </p>"; 
     die("Error al conectar con el servidor");
     //agregar un exit que redireccione a una pagina de mantenimiento. 
+    
 }
