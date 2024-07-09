@@ -23,7 +23,7 @@ $dataVieja = $_SESSION['data-vieja'] ?? [];
                     id="nombre"
                     name="nombre"
                     class="form-control"
-                    value="<?= $dataVieja['nombre'] ?? $producto->getNombre(); ?>"
+                    value="<?= $dataVieja['nombre'] ?? $producto->setNombre($nombre); ?>"
                     aria-describedby="help-nombre error-nombre"
                 >
                 <div id="help-nombre" class="form-help">Mínimo 3 caracteres</div>

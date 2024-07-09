@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../../clases/Producto.php';
+require_once __DIR__ . '/../../clases/Conexion.php';
 session_start();
 //captura de los datos del form 
 $nombre         = $_POST['nombre'];
@@ -9,8 +10,7 @@ $cuerpo         = $_POST['cuerpo'];
 $precio         = $_POST['precio'];
 $disponibilidad = $_POST['disponibilidad'];
 $categoria_id   = $_POST['categoria_id'];
-//$imagen = $_POST['imagen'];
-
+$imagen         = $_FILES['imagen'];
 
 
 //validacion de datos 
@@ -51,15 +51,18 @@ try { //anadir con clase Producto
         'imagen'        => " ",
         'usuario_fk'    => 1
     ]);
+    
     //redirecciona a otra pantalla
-    $_SESSION ['mensajeFeedback'] = 'El producto fue añadido exitosamente';
-    $_SESSION['feedback-tipo'] = "success";
+    //variables de sesion:  manera de almacenar información sobre un usuario a lo largo de su visita a un sitio web.
+    $_SESSION['mensajeFeedback'] = 'El producto fue añadido exitosamente!';
+    $_SESSION['mensajeFeedbackTipo'] = "succes";
     header('Location: ../index.php?seccion=productos');
     exit;
 } catch (Exception $th) {
-    $_SESSION['feedback-mensaje'] = "El producto no se pudo publicar correctamente";
-    $_SESSION['feedback-tipo'] = "error";
+    $_SESSION['mensajeFeedback'] = "El producto no se pudo publicar correctamente";
+    $_SESSION['mensajeFeedbackTipo'] = "danger";
     header('Location: ../index.php?seccion=producto-nuevo');
+    exit;
 }
 
 

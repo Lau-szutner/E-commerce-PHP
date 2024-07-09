@@ -23,6 +23,13 @@ $rutas = [
   'producto-editar' => [
     'titulo' => 'Editar producto',
   ],
+  'categorias' => [
+    'titulo' => 'Categorías',
+  ],
+  'categoria-nueva' => [
+    'titulo' => 'Añadir Categoría',
+  ]
+
 ];
 
 $vista = $_GET['seccion'] ?? 'dashboard';
@@ -39,8 +46,8 @@ $rutaConfig = $rutas[$vista];
 $mensajeFeedback = $_SESSION['mensajeFeedback'] ?? null;
 unset($_SESSION['mensajeFeedback']);
 
-$feedbackTipo = $_SESSION['feedback-tipo'] ?? 'info';
-unset($_SESSION['feedback-tipo']);
+$mensajeFeedbackTipo = $_SESSION['mensajeFeedbackTipo'] ?? 'info';
+unset($_SESSION['mensajeFeedbackTipo']);
 
 ?>
 
@@ -55,17 +62,8 @@ unset($_SESSION['feedback-tipo']);
     <link rel="icon" href="../img/icons/favicon.png">
     <link rel="stylesheet" href="../css/home.css">
   </head>
-
+	
   <body class="mt-5">
-    <?php
-    if($mensajeFeedback !== null):
-    ?>
-    <div class="alert alert-danger" role="alert"">
-    <?= $mensajeFeedback;?>
-    </div>
-    <?php
-    endif;
-    ?> 
     <header>
       <nav class="navbar navbar-expand-md fixed-top px-5">
         <div class="container-fluid d-flex justify-content-between">
@@ -81,6 +79,7 @@ unset($_SESSION['feedback-tipo']);
             <ul class="navbar-nav mx-auto">
               <li><a href="index.php?seccion=dashboard" class="nav-link px-2 text-black">Panel</a></li>
               <li><a href="index.php?seccion=productos" class="nav-link px-2 text-black">Productos</a></li>
+              <li><a href="index.php?seccion=categorias" class="nav-link px-2 text-black">Categorías</a></li>
             </ul>
           </div>
 
@@ -94,6 +93,19 @@ unset($_SESSION['feedback-tipo']);
     </header>
 
     <main class="mt-5">
+      <?php
+      if($mensajeFeedback !== null):
+      ?>
+
+        <div class="alert alert-<?= $mensajeFeedbackTipo; ?> alert-dismissible fade show " role="alert">
+          <strong><?= $mensajeFeedback;?></strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+        </div>
+
+      <?php
+      endif;
+      ?> 
+
       <?php
       require __DIR__.'/views/'.$vista.'.php';
       ?>

@@ -37,111 +37,12 @@ class Producto {
         $conn = (new Conexion)->obtenerConexion();
         $consulta = "SELECT * FROM producto";
         $stmt = $conn->prepare($consulta);
-        $stmt->execute();
-    
-        
-            
         $stmt->setFetchMode(PDO::FETCH_CLASS, self::class);
-        return $stmt->fetchAll();
-        
-    }
-    public function actualizar() {
-        $conn = (new Conexion)->obtenerConexion();
-        
-        $consulta = "UPDATE productos 
-                    SET 
-                        nombre      = :nombre, 
-                        descripcion = :descripcion, 
-                        cuerpo      = :cuerpo, 
-                        precio      = :precio, 
-                        disponibilidad = :disponibilidad, 
-                        categoria_id = :categoria_id
-                    WHERE producto_id = :producto_id";
+        $stmt->execute();   
+    
+        $productosTodos = $stmt->fetchAll();
+        return $productosTodos;
 
-        $stmt = $conn->prepare($consulta);
-        
-        $stmt->bindValue(':nombre', $this->nombre, PDO::PARAM_STR);
-        $stmt->bindValue(':descripcion', $this->descripcion, PDO::PARAM_STR);
-        $stmt->bindValue(':cuerpo', $this->cuerpo, PDO::PARAM_STR);
-        $stmt->bindValue(':precio', $this->precio, PDO::PARAM_STR);
-        $stmt->bindValue(':disponibilidad', $this->disponibilidad, PDO::PARAM_INT);
-        $stmt->bindValue(':categoria_id', $this->categoria_id, PDO::PARAM_INT);
-        $stmt->bindValue(':producto_id', $this->producto_id, PDO::PARAM_INT);
-
-
-        return $stmt->execute();
-    }
-
-    /**
-     * Get the value of producto_id
-     */ 
-    public function getProducto_id()
-    {
-        return $this->producto_id;
-    }
-
-    /**
-     * Get the value of nombre
-     */ 
-    public function getNombre()
-    {
-        return $this->nombre;
-    }
-
-    /**
-     * Get the value of categoria_id
-     */ 
-    public function getCategoria_id()
-    {
-        return $this->categoria_id;
-    }
-
-    /**
-     * Get the value of descripcion
-     */ 
-    public function getDescripcion()
-    {
-        return $this->descripcion;
-    }
-
-    /**
-     * Get the value of precio
-     */ 
-    public function getPrecio()
-    {
-        return $this->precio;
-    }
-
-    /**
-     * Get the value of disponibilidad
-     */ 
-    public function getDisponibilidad()
-    {
-        return $this->disponibilidad;
-    }
-
-    /**
-     * Get the value of imagen
-     */ 
-    public function getImagen()
-    {
-        return $this->imagen;
-    }
-
-    /**
-     * Get the value of cuerpo
-     */ 
-    public function getCuerpo()
-    {
-        return $this->cuerpo;
-    }
-
-    /**
-     * Get the value of usuario_fk
-     */ 
-    public function getUsuario_fk()
-    {
-        return $this->usuario_fk;
     }
 
 
@@ -163,8 +64,8 @@ class Producto {
         
     }
 
-    //guarda el producto en bd
-    public function crear(array $data){
+     //Crea y guarda el producto en bd
+     public function crear(array $data){
         $conn = (new Conexion)->obtenerConexion();
         $consulta = "INSERT INTO producto (nombre, 
                                             descripcion, 
@@ -194,16 +95,225 @@ class Producto {
     }
 
 
-    public function eliminar(int $pk): bool {
+
+    public function actualizar() {
+        $conn = (new Conexion)->obtenerConexion();
+        
+        $consulta = "UPDATE productos 
+                    SET 
+                        nombre      = :nombre, 
+                        descripcion = :descripcion, 
+                        cuerpo      = :cuerpo, 
+                        precio      = :precio, 
+                        disponibilidad = :disponibilidad, 
+                        categoria_id = :categoria_id,
+                        imagen      = :imagen
+                    WHERE producto_id = :producto_id";
+
+        $stmt = $conn->prepare($consulta);
+        $stmt->execute(
+            [
+                'nombre'        => $this->nombre,
+                'descripcion'   => $this->descripcion,
+                'cuerpo'        => $this->cuerpo, 
+                'precio'        => $this->precio, 
+                'disponibilidad'=> $this->disponibilidad, 
+                'categoria_id'  => $this->categoria_id,
+                'imagen'        => $this->imagen
+
+            ]
+        );
+    }
+
+    //Eliminar de la base de datos esta instancia
+    public function eliminar() {
         $conn = (new Conexion)->obtenerConexion();
 
         $consulta = "DELETE FROM producto
-                    WHERE producto_id = ?";  //holder
+                    WHERE producto_id = ?"; 
 
         $stmt = $conn->prepare($consulta);
-        $stmt->execute([$pk]);
-        
-        return true;
+        $stmt->execute([$this->producto_id]);
+    }
+
+    /**
+     * Get the value of producto_id
+     */ 
+    public function getProducto_id()
+    {
+        return $this->producto_id;
+    }
+
+    /**
+     * Set the value of producto_id
+     *
+     * @return  self
+     */ 
+    public function setProducto_id($producto_id)
+    {
+        $this->producto_id = $producto_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of nombre
+     */ 
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set the value of nombre
+     *
+     * @return  self
+     */ 
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of categoria_id
+     */ 
+    public function getCategoria_id()
+    {
+        return $this->categoria_id;
+    }
+
+    /**
+     * Set the value of categoria_id
+     *
+     * @return  self
+     */ 
+    public function setCategoria_id($categoria_id)
+    {
+        $this->categoria_id = $categoria_id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of descripcion
+     */ 
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set the value of descripcion
+     *
+     * @return  self
+     */ 
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of precio
+     */ 
+    public function getPrecio()
+    {
+        return $this->precio;
+    }
+
+    /**
+     * Set the value of precio
+     *
+     * @return  self
+     */ 
+    public function setPrecio($precio)
+    {
+        $this->precio = $precio;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of disponibilidad
+     */ 
+    public function getDisponibilidad()
+    {
+        return $this->disponibilidad;
+    }
+
+    /**
+     * Set the value of disponibilidad
+     *
+     * @return  self
+     */ 
+    public function setDisponibilidad($disponibilidad)
+    {
+        $this->disponibilidad = $disponibilidad;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of imagen
+     */ 
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+
+    /**
+     * Set the value of imagen
+     *
+     * @return  self
+     */ 
+    public function setImagen($imagen)
+    {
+        $this->imagen = $imagen;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of cuerpo
+     */ 
+    public function getCuerpo()
+    {
+        return $this->cuerpo;
+    }
+
+    /**
+     * Set the value of cuerpo
+     *
+     * @return  self
+     */ 
+    public function setCuerpo($cuerpo)
+    {
+        $this->cuerpo = $cuerpo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of usuario_fk
+     */ 
+    public function getUsuario_fk()
+    {
+        return $this->usuario_fk;
+    }
+
+    /**
+     * Set the value of usuario_fk
+     *
+     * @return  self
+     */ 
+    public function setUsuario_fk($usuario_fk)
+    {
+        $this->usuario_fk = $usuario_fk;
+
+        return $this;
     }
 }
 ?>

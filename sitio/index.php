@@ -57,7 +57,7 @@ $rutaConfig = $rutas[$vista];
           </a>
 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" id="ol"></span>
+          <span class="navbar-toggler-icon" id="ol"></span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -84,7 +84,7 @@ $rutaConfig = $rutas[$vista];
       require __DIR__.'/views/'.$vista.'.php';
       ?>
     </main>
-      
+
     <footer id="footer">
       <div class="infoFooter d-flex flex-column align-items-center p-5">
         <picture>
