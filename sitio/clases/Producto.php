@@ -8,7 +8,7 @@ class Producto {
     protected int $producto_id;
     protected string $nombre; 
     protected string $categoria_id; 
-    protected ?string $descripcion = null;
+    protected string $descripcion;
     protected float $precio;
     protected bool $disponibilidad; 
     protected ?string $imagen = null;
