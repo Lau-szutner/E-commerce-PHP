@@ -54,7 +54,13 @@ unset($_SESSION['datosGuardados']);
 
         <div>
             <label for="precio">Precio</label>
+            <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
             <input type="number" id="precio" name="precio" class="form-control" value="<?= $datosGuardados['precio'] ?? null;?>" >
+            </div>
+  
+  
+
             <?php
                 if(isset($errores['precio'])):
             ?>  
@@ -83,7 +89,7 @@ unset($_SESSION['datosGuardados']);
         </div>
         <div>
             <label for="imagen">Imagen</label>
-            <input type="file" name="imagen" id="imagen">
+            <input type="file" name="imagen" id="imagen" class="form-control">
         </div>
 
         <button type="submit" class="button">Añadir</button>    

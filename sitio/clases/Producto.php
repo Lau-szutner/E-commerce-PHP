@@ -14,6 +14,14 @@ class Producto {
     protected ?string $imagen = null;
     protected ?string $cuerpo = null;
     protected ?int $usuario_fk = null;
+    public function __construct(array $data = []) {
+        if (!empty($data)) {
+            $this->asignarDatos($data);
+        }
+    }
+
+
+    
 
 
     public function asignarDatos (array $data): void {
@@ -99,7 +107,7 @@ class Producto {
     public function actualizar() {
         $conn = (new Conexion)->obtenerConexion();
         
-        $consulta = "UPDATE productos 
+        $consulta = "UPDATE producto 
                     SET 
                         nombre      = :nombre, 
                         descripcion = :descripcion, 
@@ -134,6 +142,8 @@ class Producto {
 
         $stmt = $conn->prepare($consulta);
         $stmt->execute([$this->producto_id]);
+
+        return true;
     }
 
     /**
@@ -151,7 +161,7 @@ class Producto {
      */ 
     public function setProducto_id($producto_id)
     {
-        $this->producto_id = $producto_id;
+        $this->producto_id = (int)$producto_id;
 
         return $this;
     }

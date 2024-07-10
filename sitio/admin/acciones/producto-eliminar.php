@@ -5,25 +5,26 @@ session_start();
 
 
 
-$producto_id = $_GET['producto_id'];
+$producto_id = $_GET['producto_id']; // el form es por POST, pero como es la PK, debemos buscarla por GET 
 
 try {
     
-    if (isset($_GET['producto_id']) && is_numeric($_GET['producto_id'])) {
-        $producto_id = (int)$_GET['producto_id'];  
-        (new Producto())->eliminar($producto_id);
-
-        $_SESSION['feedback-mensaje'] = "El producto ha sido eliminado";
-        $_SESSION['feedback-tipo'] = "success";
-
-        header("Location: ../index.php?seccion=productos");
-        exit;
-    } else {
-        throw new Exception("ID de producto no válido.");
+    $producto = (new Producto)->productoPorId($producto_id);
+    if ($producto) {
+        // Si se encuentra el producto, llamar al método eliminar() en ese objeto
+        $producto->eliminar();
+        $_SESSION['mensajeFeedback'] = "El producto ha sido eliminado exitosamente";
+        $_SESSION['mensajeFeedbackTipo'] = "success";
+    }else {
+        $_SESSION['mensajeFeedback'] = "El producto no se encontró";
+        $_SESSION['mensajeFeedbackTipo'] = "danger";
     }
+    
+
+    header("Location: ../index.php?seccion=productos");
 } catch (\Exception $th) {
-    $_SESSION['feedback-mensaje'] = "El producto no se pudo eliminar";
-    $_SESSION['feedback-tipo'] = "danger";
+    $_SESSION['mensajeFeedback'] = "El producto no se pudo eliminar";
+    $_SESSION['mensajeFeedbackTipo'] = "danger";
 
     header("Location: ../index.php?seccion=productos");
     exit;

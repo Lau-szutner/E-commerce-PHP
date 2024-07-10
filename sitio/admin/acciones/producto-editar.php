@@ -1,88 +1,81 @@
 <?php
+
 require_once __DIR__ . '/../../clases/Producto.php';
+require_once __DIR__ . '/../../clases/Conexion.php';
 session_start();
 
 
-
-
-$producto_id = $_GET['producto_id'];
-
-
-
-
-
-
+$producto = (new Producto)->productoPorId($_GET['producto_id']);
 // Captura de los datos del formulario
-$producto_id = $_GET['producto_id'];
-$nombre = $_POST['nombre'];
-$descripcion = $_POST['descripcion'];
-$cuerpo = $_POST['cuerpo'];
-$precio = $_POST['precio'];
+$producto_id    = $_GET['producto_id'];
+$nombre         = $_POST['nombre'];
+$descripcion    = $_POST['descripcion'];
+$cuerpo         = $_POST['cuerpo'];
+$precio         = $_POST['precio'];
+$disponibilidad = $_POST['disponibilidad'];
+$categoria_id   = $_POST['categoria_id'];
+$imagen         = $_FILES['imagen'];
 
-$categoria_id = $_POST['categoria_id'];
 
+// Validación de datos
 $errores = [];
 
-// Validaciones de los campos
-if (empty($nombre)) {
-    $errores['nombre'] = "El nombre no puede quedar vacío.";
+// Validando los campos
+if(empty($nombre)) {
+    $errores['nombre'] = 'El nombre no puede quedar vacío';
+} 
+
+if(empty($descripcion)){
+    $errores['descripcion'] = 'La descripción no puede quedar vacía';
 }
 
-if (empty($descripcion)) {
-    $errores['descripcion'] = "La descripción no puede quedar vacía.";
+if(empty($precio)) {
+    $errores['precio'] = 'El precio debe contener un valor';
 }
 
-if (empty($cuerpo)) {
-    $errores['cuerpo'] = "El cuerpo no puede quedar vacío.";
-}
-
-if ($precio <= 0) {
-    $errores['precio'] = "El precio debe ser mayor que cero.";
-}
-
-if (empty($categoria_id)) {
-    $errores['categoria'] = "La categoría debe seleccionarse.";
+if (!empty($imagen['tmp_name'])){
+    $nombreImagen =    date('Ymd_His_') . $imagen['name'];
+    move_uploaded_file($imagen['tmp_name'], __DIR__ . '/../../img/productos/' . $nombreImagen);
 }
 
 if (count($errores) > 0) {
-    $_SESSION['feedback-mensaje'] = "Corrige los errores antes de continuar.";
-    $_SESSION['feedback-tipo'] = "error";
+    $_SESSION['mensajeFeedback'] = "Hay errores en tus datos. Revisalos por favor, no cumplen con lo requerido.";
+    $_SESSION['mensajeFeedbackTipo'] = "danger";
     $_SESSION['errores'] = $errores;
-    $_SESSION['data-vieja'] = $_POST;
-    header("Location: ../editar-producto.php?id=" . $producto_id);
+
+    // Recuperar datos (en caso de errores por ejemplo)
+    $_SESSION['datosGuardados'] = $_POST;
+    header('Location: ../index.php?seccion=producto-editar');
     exit;
 }
 
-
+// Subida de imagen
 
 try {
-    // Actualización del producto
-    $producto = new Producto();
-    $producto->getProducto_id($producto_id);
-    $producto->getNombre($nombre);
-    $producto->getDescripcion($descripcion);
-    $producto->getCuerpo($cuerpo);
-    $producto->getPrecio($precio);
-    $producto->getDisponibilidad($disponibilidad);
-    $producto->getCategoria_id($categoria_id);
+    // Instanciamos la clase Producto
+   
 
-    $resultado = $producto->actualizar();
+    // Asignamos los datos al objeto Producto
+    $producto->setProducto_id($_GET['producto_id']);
+    $producto->setNombre($nombre);
+    $producto->setCategoria_id($categoria_id);
+    $producto->setDescripcion($descripcion);
+    $producto->setPrecio($precio);
+    $producto->setDisponibilidad($disponibilidad);
+   
+    $producto->setCuerpo($cuerpo ?? null);
 
-    if ($resultado) {
-        $_SESSION['feedback-mensaje'] = "El producto se actualizó correctamente.";
-        $_SESSION['feedback-tipo'] = "success";
-        header("Location: ../index.php?seccion=productos");
-        exit;
-    } else {
-        $_SESSION['feedback-mensaje'] = "Hubo un problema al actualizar el producto.";
-        $_SESSION['feedback-tipo'] = "error";
-        header("Location: ../editar-producto.php?id=" . $idProducto);
-        exit;
-    }
-} catch (Exception $e) {
-    $_SESSION['feedback-mensaje'] = "Error: " . $e->getMessage();
-    $_SESSION['feedback-tipo'] = "error";
-    header("Location: ../editar-producto.php?id=" . $idProducto);
+    // Actualizamos el producto en la base de datos
+    $producto->actualizar();
+
+    // Mensaje de éxito y redirección
+    $_SESSION['mensajeFeedback'] = 'El producto fue actualizado exitosamente!';
+    $_SESSION['mensajeFeedbackTipo'] = "success";
+    header('Location: ../index.php?seccion=productos');
+    exit;
+} catch (Exception $th) {
+    $_SESSION['mensajeFeedback'] = "El producto no se pudo actualizar correctamente";
+    $_SESSION['mensajeFeedbackTipo'] = "danger";
+    header('Location: ../index.php?seccion=producto-editar');
     exit;
 }
-?>

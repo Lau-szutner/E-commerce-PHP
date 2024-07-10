@@ -36,15 +36,11 @@ $productos = $productosObj->productosTodos();
                 <td><?= $producto->getDisponibilidad(); ?> </td>
                 <td><?= $producto->getDescripcion(); ?> </td>
                 <td><?= $producto->getCategoria_id(); ?> </td>
-                <td><img src= " <?= '../' . $producto->getImagen();?>" alt="<?= $producto->getNombre();?>" </td>
-                <td> 
+                <td><img src="<?= "../img/productos/{$producto->getImagen()}"; ?>"  alt="<?= $producto->getNombre(); ?>" ><td> 
                     <div class="d-flex">
                         <a href="index.php?seccion=producto-editar&producto_id=<?= $producto->getProducto_id(); ?>" class="btn btn-warning mr-2">Editar</a>
-                        <!--<a href="index.php?seccion=producto-eliminar&id=<?= $producto->getProducto_id(); ?>" class="btn btn-danger">Eliminar</a> !-->
-                        <form action="acciones/producto-eliminar.php" method="get">
-                            <input type="hidden" name="producto_id" value="<?= $producto->getProducto_id(); ?>">
-                            <button class="btn btn-danger">Eliminar</button>
-                        </form>
+                        <a href="index.php?seccion=producto-eliminar&producto_id=<?= $producto->getProducto_id(); ?>" class="btn btn-warning mr-2">Eliminar</a> 
+                        
                     </div>  
                 </td>
             </tr>

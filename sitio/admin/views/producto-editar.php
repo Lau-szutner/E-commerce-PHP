@@ -3,112 +3,89 @@ require_once __DIR__ . '/../../clases/Categoria.php';
 require_once __DIR__ . '/../../clases/Producto.php';
 
 $categorias = (new Categoria)->todos();
-$producto = (new Producto)->productoPorId($_GET['producto_id']);
+
+$producto = (new Producto)->productoPorId($producto_id);
+
+
 
 $errores = $_SESSION['errores'] ?? [];
 unset($_SESSION['errores']);
-$dataVieja = $_SESSION['data-vieja'] ?? [];
+
+$datosGuardados = $_SESSION['datosGuardados'] ?? [];
+unset($_SESSION['datosGuardados']);
 
 ?>
 
 <section class="container mt-5 mb-5">
+    <h1 class="pt-5">Editar Producto</h1>
+    <form action="acciones/producto-editar.php" method="post" enctype="multipart/form-data">
+        
+        <div>
+            <!-- NOMBRE -->
+            <label for="nombre" class="form-label">Nombre del producto</label>
+            <input type="text" id="nombre" name="nombre" class="form-control" value="<?= htmlspecialchars($datosGuardados['nombre'] ?? $producto->getNombre()); ?>" >
+            <?php if (isset($errores['nombre'])): ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $errores['nombre']; ?>
+                </div>
+            <?php endif; ?>
+        </div>
 
-    <h1 class="pt-5">Editar producto</h1>
+        <div>
+            <!-- DESCRIPCION -->
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Ingrese una descripción corta del producto aquí"><?= htmlspecialchars($datosGuardados['descripcion'] ?? $producto->getDescripcion()); ?></textarea>
+            <?php if (isset($errores['descripcion'])): ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $errores['descripcion']; ?>
+                </div>
+            <?php endif; ?>
+        </div>
 
-    <form action="acciones/producto-editar.php?producto_id=<?= $producto->getProducto_id(); ?>" method="post" enctype="multipart/form-data">
-            <div class="form-fila">
-                <label for="nombre">Nombre</label>
-                <input
-                    type="text"
-                    id="nombre"
-                    name="nombre"
-                    class="form-control"
-                    value="<?= $dataVieja['nombre'] ?? $producto->setNombre($nombre); ?>"
-                    aria-describedby="help-nombre error-nombre"
-                >
-                <div id="help-nombre" class="form-help">Mínimo 3 caracteres</div>
-                <div id="error-nombre">
-                <?php if (isset($errores['nombre'])): ?>
-                    <div class="msg-error"><span class="visually-hidden">Error: </span><?= $errores['nombre']; ?></div>
-                <?php endif; ?>
+        <div>
+            <!-- CUERPO -->
+            <label for="cuerpo">Cuerpo</label>
+            <textarea id="cuerpo" name="cuerpo" class="form-control" placeholder="Ingrese una descripción más detallada. Añada toda la información relevante sobre el producto."><?= htmlspecialchars($datosGuardados['cuerpo'] ?? $producto->getCuerpo()); ?></textarea>
+        </div>
+
+        <div>
+            <!-- PRECIO -->
+            <label for="precio">Precio</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text">$</span>
+                <input type="number" id="precio" name="precio" class="form-control" value="<?= htmlspecialchars($datosGuardados['precio'] ?? $producto->getPrecio()); ?>" >
+            </div>
+            <?php if (isset($errores['precio'])): ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $errores['precio']; ?>
                 </div>
-            </div>
-            <div class="form-fila">
-                <label for="descripcion">Descripción</label>
-                <textarea
-                    id="descripcion"
-                    name="descripcion"
-                    class="form-control"
-                    aria-describedby="error-descripcion"
-                ><?= $dataVieja['descripcion'] ?? $producto->getDescripcion(); ?></textarea>
-                <div id="error-descripcion">
-                <?php if (isset($errores['descripcion'])): ?>
-                    <div class="msg-error"><span class="visually-hidden">Error: </span><?= $errores['descripcion']; ?></div>
-                <?php endif; ?>
-                </div>
-            </div>
-            <div class="form-fila">
-                <label for="cuerpo">Cuerpo</label>
-                <textarea
-                    id="cuerpo"
-                    name="cuerpo"
-                    class="form-control"
-                    aria-describedby="error-cuerpo"
-                ><?= $dataVieja['cuerpo'] ?? $producto->getCuerpo(); ?></textarea>
-                <div id="error-cuerpo">
-                <?php if (isset($errores['cuerpo'])): ?>
-                    <div class="msg-error"><span class="visually-hidden">Error: </span><?= $errores['cuerpo']; ?></div>
-                <?php endif; ?>
-                </div>
-            </div>
-            <div class="form-fila">
-                <label for="precio">Precio</label>
-                <input
-                    type="number"
-                    step="0.01"
-                    id="precio"
-                    name="precio"
-                    class="form-control"
-                    value="<?= $dataVieja['precio'] ?? $producto->getPrecio(); ?>"
-                >
-                <div id="error-precio">
-                <?php if (isset($errores['precio'])): ?>
-                    <div class="msg-error"><span class="visually-hidden">Error: </span><?= $errores['precio']; ?></div>
-                <?php endif; ?>
-                </div>
-            </div>
-            <div class="form-fila">
-                <label for="disponibilidad">Disponibilidad</label>
-                <select
-                    id="disponibilidad"
-                    name="disponibilidad"
-                    class="form-control"
-                >
-                    <option value="1" <?= $producto->getDisponibilidad() ? 'selected' : ''; ?>>Disponible</option>
-                    <option value="0" <?= !$producto->getDisponibilidad() ? 'selected' : ''; ?>>No Disponible</option>
-                </select>
-            </div>
-    
-            
-            <div class="form-fila">
-                <label for="categoria_id">Categoría</label>
-                <select
-                    id="categoria_id"
-                    name="categoria_id"
-                    class="form-control"
-                >
-                <?php
-                foreach ($categorias as $categoria):
-                ?>
-                    <option 
-                        value="<?= $categoria->getCategoria_id(); ?>"
-                        <?= $categoria->getCategoria_id() == ($dataVieja['categoria_id'] ?? $producto->getCategoria_id()) ? "selected" : null; ?>
-                    >
-                        <?= $categoria->getNombre(); ?>
+            <?php endif; ?>
+        </div>
+
+        <div>
+            <!-- DISPONIBILIDAD -->
+            <label for="disponibilidad">Disponibilidad</label>
+            <input type="number" id="disponibilidad" class="form-control" name="disponibilidad" value="<?= htmlspecialchars($datosGuardados['disponibilidad'] ?? $producto->getDisponibilidad()); ?>" >
+        </div>
+
+        <div>
+            <!-- CATEGORIA -->
+            <label for="categoria_id">Categoría</label>
+            <select name="categoria_id" id="categoria_id" class="form-select">
+                <?php foreach ($categorias as $categoria): ?>
+                    <option value="<?= $categoria->getCategoria_id(); ?>" <?= ($categoria->getCategoria_id() == ($datosGuardados['categoria_id'] ?? $producto->getCategoria_id())) ? 'selected' : ''; ?>>
+                        <?= htmlspecialchars($categoria->getNombre()); ?>
                     </option>
                 <?php endforeach; ?>
-                </select>
-            </div>
-            <button type="submit" class="button">Actualizar</button>
-        </form>
-    </section>
+            </select>
+        </div>
+
+        
+        
+    </form>
+
+    <form action="acciones/producto-editar.php" method="post">
+        <input type="hidden" name="producto_id" value="<?= $producto->getProducto_id(); ?>">
+        <button type="submit" class="btn btn-danger mt-3">Actualizar Productos</button>
+    </form>
+</section>

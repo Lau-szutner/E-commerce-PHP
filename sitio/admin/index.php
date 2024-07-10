@@ -14,8 +14,8 @@ $rutas = [
   '404' => [
     'titulo' => 'Página no Encontrada',
   ],
-  'detalleProducto' => [
-    'titulo' => 'Detalle del Producto',
+  'producto-eliminar' => [
+    'titulo' => 'Eliminar Producto',
   ],
   'producto-nuevo' => [
     'titulo' => 'Añadir Producto',

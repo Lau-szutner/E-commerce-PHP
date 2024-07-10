@@ -10,7 +10,7 @@ $cuerpo         = $_POST['cuerpo'];
 $precio         = $_POST['precio'];
 $disponibilidad = $_POST['disponibilidad'];
 $categoria_id   = $_POST['categoria_id'];
-$imagen         = $_FILES['imagen'] ?? null;
+$imagen         = $_FILES['imagen'];
 
 
 //validacion de datos 
@@ -28,6 +28,14 @@ if(empty($descripcion)){
 
 if(empty($precio)) {
     $errores['precio'] = 'El precio debe contener un valor';
+}
+
+if (!empty($imagen['tmp_name'])){
+   $nombreImagen =    date('Ymd_His_') . $imagen['name'];
+   move_uploaded_file($imagen['tmp_name'], __DIR__ . '/../../img/productos/' . $nombreImagen);
+
+   
+
 }
 
 if (count($errores) > 0) {
@@ -52,7 +60,7 @@ try { //anadir con clase Producto
         'precio'        => $precio,
         'disponibilidad'=> $disponibilidad,
         'categoria_id'  => $categoria_id,
-        'imagen'        => " ",
+        'imagen'        => $nombreImagen ?? null,
         'usuario_fk'    => 1
     ]);
     
