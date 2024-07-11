@@ -17,9 +17,8 @@
             return false;
         }
 
-        // Comprobamos el password.
+        // Verificacion del password.
         if(!password_verify($password, $fila['password'])) {
-            // No coinciden los passwords.
             return false;
         }
 

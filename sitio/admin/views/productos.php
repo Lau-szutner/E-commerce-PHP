@@ -32,7 +32,7 @@ $productos = $productosObj->productosTodos();
                 <tr>
                     <td><?= $producto->getProducto_id(); ?> </td>
                     <td><?= $producto->getNombre(); ?> </td>
-                    <td><?= $producto->getPrecio(); ?> </td>
+                    <td> $<?= $producto->getPrecio(); ?> </td>
                     <td><?= $producto->getDisponibilidad(); ?> </td>
                     <td><?= $producto->getDescripcion(); ?> </td>
                     <td><?= $producto->getCategoria_id(); ?> </td>

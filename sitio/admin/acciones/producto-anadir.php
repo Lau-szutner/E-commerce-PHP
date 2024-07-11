@@ -1,8 +1,19 @@
 <?php
-
+require_once __DIR__ . '/../../clases/Autenticacion.php';
 require_once __DIR__ . '/../../clases/Producto.php';
 require_once __DIR__ . '/../../clases/Conexion.php';
 session_start();
+
+require_once __DIR__ . '/../../clases/Autenticacion.php';
+
+//$auth = new Autenticacion;
+//if($requiereAutenticacion && !$auth->estaAutenticado()) {
+  //  $_SESSION['mensajeFeedback'] = "Se necesita haber iniciado sesion para tener acceso a esta pantalla";
+ //   $_SESSION['mensajeFeedbackTipo'] = "danger";
+  //  header("Location: index.php?seccion=login");
+  //  exit;
+ // }
+
 //captura de los datos del form 
 $nombre         = $_POST['nombre'];
 $descripcion    = $_POST['descripcion'];
@@ -34,8 +45,6 @@ if (!empty($imagen['tmp_name'])){
    $nombreImagen =    date('Ymd_His_') . $imagen['name'];
    move_uploaded_file($imagen['tmp_name'], __DIR__ . '/../../img/productos/' . $nombreImagen);
 
-   
-
 }
 
 if (count($errores) > 0) {
@@ -51,6 +60,9 @@ if (count($errores) > 0) {
 
 
 //subida de imagen 
+
+
+
 
 try { //anadir con clase Producto
     (new Producto)->crear([
@@ -76,10 +88,6 @@ try { //anadir con clase Producto
     header('Location: ../index.php?seccion=producto-nuevo');
     exit;
 }
-
-
-
-
 
 
 ?>

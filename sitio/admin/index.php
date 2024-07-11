@@ -10,7 +10,7 @@ $rutas = [
   ],
   'productos' => [
     'titulo' => 'Productos',
-    'requiereAutenticacion' => true,
+
     ],
   'login' => [
     'titulo' => 'Iniciar sesion',
@@ -24,11 +24,11 @@ $rutas = [
   ],
   'producto-nuevo' => [
     'titulo' => 'Añadir Producto',
-    'requiereAutenticacion' => true,
+
   ],
   'producto-editar' => [
     'titulo' => 'Editar producto',
-    'requiereAutenticacion' => true,
+    
   ],
   'categorias' => [
     'titulo' => 'Categorías',

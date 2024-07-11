@@ -14,11 +14,7 @@ class Producto {
     protected ?string $imagen = null;
     protected ?string $cuerpo = null;
     protected ?int $usuario_fk = null;
-    public function __construct(array $data = []) {
-        if (!empty($data)) {
-            $this->asignarDatos($data);
-        }
-    }
+   
 
 
     
@@ -54,7 +50,7 @@ class Producto {
     }
 
 
-    public function productoPorId(int $producto_id): ?self {
+    public function productoPorId($producto_id): ?self {
         $conn = (new Conexion)->obtenerConexion();
 
         $consulta = "SELECT * FROM producto
@@ -102,37 +98,38 @@ class Producto {
         ]);
     }
 
+    public function actualizar(int $pk, array $data) {
+      $conn = (new Conexion)->obtenerConexion();
+      
+      $consulta = "UPDATE producto 
+                  SET 
+                      nombre      = :nombre, 
+                      descripcion = :descripcion, 
+                      cuerpo      = :cuerpo, 
+                      precio      = :precio, 
+                      disponibilidad = :disponibilidad, 
+                      categoria_id = :categoria_id,
+                      imagen      = :imagen
+                  WHERE producto_id = :producto_id";
+
+      $stmt = $conn->prepare($consulta);
+      $stmt->execute([
+        'producto_id'   =>  $pk,
+        'nombre'        => $data['nombre'],
+        'descripcion'   => $data['descripcion'],
+        'cuerpo'        => $data['cuerpo'], 
+        'precio'        => $data['precio'], 
+        'disponibilidad'=> $data['disponibilidad'], 
+        'categoria_id'  => $data['categoria_id'],
+        'imagen'        => $data['imagen']
+    ]);
+    
+  }
 
 
-    public function actualizar() {
-        $conn = (new Conexion)->obtenerConexion();
-        
-        $consulta = "UPDATE producto 
-                    SET 
-                        nombre      = :nombre, 
-                        descripcion = :descripcion, 
-                        cuerpo      = :cuerpo, 
-                        precio      = :precio, 
-                        disponibilidad = :disponibilidad, 
-                        categoria_id = :categoria_id,
-                        imagen      = :imagen
-                    WHERE producto_id = :producto_id";
 
-        $stmt = $conn->prepare($consulta);
-        $stmt->execute(
-            [
-                'nombre'        => $this->nombre,
-                'descripcion'   => $this->descripcion,
-                'cuerpo'        => $this->cuerpo, 
-                'precio'        => $this->precio, 
-                'disponibilidad'=> $this->disponibilidad, 
-                'categoria_id'  => $this->categoria_id,
-                'imagen'        => $this->imagen
-
-            ]
-        );
-    }
-
+ 
+ 
     //Eliminar de la base de datos esta instancia
     public function eliminar() {
         $conn = (new Conexion)->obtenerConexion();

@@ -26,13 +26,11 @@ class Categoria {
                     WHERE categoria_id = ?";
         $stmt = $conn->prepare($consulta);
         $stmt->execute([$this->categoria_id]);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $stmt->setFetchMode(PDO::FETCH_CLASS,);
         
     }
 
-    public function crearCategoria() {
-        
-    }
+    
 
     /**
      * Get the value of categoria_id
