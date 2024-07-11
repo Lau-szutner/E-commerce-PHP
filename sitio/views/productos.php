@@ -15,7 +15,7 @@ $productos = $productosObj->productosTodos();
 						<div class="card">
 							<article class="contenidoCard">
 								<picture class="item">
-									<img src="<?php echo $producto->getImagen(); ?>" alt="<?php echo $producto->getNombre(); ?>">
+									<img src="<?= "img/productos/{$producto->getImagen()}"; ?>" alt="<?= $producto->getNombre(); ?>">
 								</picture>
 								<a class="link" href="index.php?seccion=detalleProducto&id=<?php echo $producto->getProducto_Id(); ?>">
 									<h2><?php echo $producto->getNombre(); ?></h2>
