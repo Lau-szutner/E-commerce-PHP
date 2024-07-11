@@ -1,7 +1,7 @@
-@import url('productos.css');
-@import url('contacto.css');
-@import url('servicios.css');
-@import url('error.css');
+@import url("productos.css");
+@import url("contacto.css");
+@import url("servicios.css");
+@import url("error.css");
 
 :root {
   --color-primario: #ffa600; /* Rojo */
@@ -41,9 +41,6 @@ nav {
   text-align: center;
 }
 
-
-
-
 /*--------------------------------------- FOOTER */
 #footer {
   background-color: rgb(29, 29, 29);
@@ -67,4 +64,8 @@ header {
 
 #login li {
   list-style: none;
+}
+
+#header1 {
+  width: auto;
 }
