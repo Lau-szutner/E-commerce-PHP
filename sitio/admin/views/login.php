@@ -1,7 +1,14 @@
-<div class="container m-5 p-5">
-    <form action="login.php" method="post" class="container d-flex flex-column">
-        <input type="text" name="usuario" placeholder="Usuario"><br>
-        <input type="password" name="contrasena" placeholder="Contraseña"><br>
-        <button type="submit">Iniciar sesión</button>
+<section>
+    <h1>Iniciar al Panel de Administración</h1>
+
+    <form action="acciones/login.php" method="post">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control">
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" class="form-control">
+
+        <button type="submit" class="button"> Ingresar </button>
+
     </form>
-</div>
+</section>

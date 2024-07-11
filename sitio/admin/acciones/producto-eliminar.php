@@ -19,9 +19,9 @@ try {
         $_SESSION['mensajeFeedback'] = "El producto no se encontró";
         $_SESSION['mensajeFeedbackTipo'] = "danger";
     }
-    
 
     header("Location: ../index.php?seccion=productos");
+    
 } catch (\Exception $th) {
     $_SESSION['mensajeFeedback'] = "El producto no se pudo eliminar";
     $_SESSION['mensajeFeedbackTipo'] = "danger";
