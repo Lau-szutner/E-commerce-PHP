@@ -1,8 +1,7 @@
-<section class="container seccionContenedor">
+<section class="container p-5 d-flex flex-column">
     <h1 class="text-center">Contacto</h1>
-    <div class="row row-cols-md-2">
-
-        <form action="procesar.php" method="get" class="col d-flex flex-column" id="contactoForm">
+    <div class="row row-cols-1 row-cols-md-2 ">
+        <form action="procesar.php" method="get" class="col d-flex flex-column mb-5" id="contactoForm">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
 
@@ -25,14 +24,10 @@
             <label for="mensaje">Mensaje:</label>
             <textarea id="mensaje" name="mensaje" rows="4" cols="50" required></textarea>
             <button type="submit">Enviar</button>
-
-
         </form>
 
-        <picture class="col">
-            <img src="img/form.png" alt="Gracias por tu mensaje, nos gusta escucharte">
+        <picture class="col ">
+            <img src="img/form.png" class="img-fluid w-100" alt="Gracias por tu mensaje, nos gusta escucharte">
         </picture>
     </div>
-
-
 </section>
