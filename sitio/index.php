@@ -70,9 +70,9 @@ $rutaConfig = $rutas[$vista];
         </div>
 
         <div id="login">
-          <form class="d-flex"> <!-- Utilizamos ml-auto para enviar el botón a la izquierda -->
-            <button class="btn btn-outline-dark ">Login</button>
-          </form>
+          
+          <a href="../sitio/admin/index.php?seccion=login" class="btn btn-outline-dark">Login</a>
+
         </div>
 
       </div>
