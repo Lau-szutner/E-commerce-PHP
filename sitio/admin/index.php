@@ -124,7 +124,7 @@ unset($_SESSION['mensajeFeedbackTipo']);
       </nav>
     </header>
 
-    <main class="mt-5">
+    <main class="mt-5 p-5">
       <?php
       if($mensajeFeedback !== null):
       ?>
