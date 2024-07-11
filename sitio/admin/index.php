@@ -6,9 +6,11 @@ require_once __DIR__ . '/../clases/Autenticacion.php';
 $rutas = [
   'dashboard' => [
     'titulo' => 'Panel',
+    'requiereAutenticacion' => true,
   ],
   'productos' => [
     'titulo' => 'Productos',
+    'requiereAutenticacion' => true,
     ],
   'login' => [
     'titulo' => 'Iniciar sesion',
@@ -18,18 +20,23 @@ $rutas = [
   ],
   'producto-eliminar' => [
     'titulo' => 'Eliminar Producto',
+    'requiereAutenticacion' => true,
   ],
   'producto-nuevo' => [
     'titulo' => 'Añadir Producto',
+    'requiereAutenticacion' => true,
   ],
   'producto-editar' => [
     'titulo' => 'Editar producto',
+    'requiereAutenticacion' => true,
   ],
   'categorias' => [
     'titulo' => 'Categorías',
+    'requiereAutenticacion' => true,
   ],
   'categoria-nueva' => [
     'titulo' => 'Añadir Categoría',
+    'requiereAutenticacion' => true,
   ]
 
 ];
@@ -47,11 +54,19 @@ $rutaConfig = $rutas[$vista];
 // Autenticacion
 $auth = new Autenticacion;
 
+//verificacion si requiere autenticacion
+$requiereAutenticacion = $rutaConfig['requiereAutenticacion'] ?? false;
+if($requiereAutenticacion && !$auth->estaAutenticado()) {
+  $_SESSION['mensajeFeedback'] = "Se necesita haber iniciado sesion para tener acceso a esta pantalla";
+  $_SESSION['mensajeFeedbackTipo'] = "danger";
+  header("Location: index.php?seccion=login");
+  exit;
+}
 
 $mensajeFeedback = $_SESSION['mensajeFeedback'] ?? null;
 unset($_SESSION['mensajeFeedback']);
 
-$mensajeFeedbackTipo = $_SESSION['mensajeFeedbackTipo'] ?? 'info';
+$mensajeFeedbackTipo = $_SESSION['mensajeFeedbackTipo'] ?? 'warning';
 unset($_SESSION['mensajeFeedbackTipo']);
 
 ?>
