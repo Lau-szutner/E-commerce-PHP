@@ -6,13 +6,13 @@ session_start();
 
 require_once __DIR__ . '/../../clases/Autenticacion.php';
 
-//$auth = new Autenticacion;
-//if($requiereAutenticacion && !$auth->estaAutenticado()) {
-  //  $_SESSION['mensajeFeedback'] = "Se necesita haber iniciado sesion para tener acceso a esta pantalla";
- //   $_SESSION['mensajeFeedbackTipo'] = "danger";
-  //  header("Location: index.php?seccion=login");
-  //  exit;
- // }
+$auth = new Autenticacion;
+if($requiereAutenticacion && !$auth->estaAutenticado()) {
+$_SESSION['mensajeFeedback'] = "Se necesita haber iniciado sesion para tener acceso a esta pantalla";
+$_SESSION['mensajeFeedbackTipo'] = "danger";
+header("Location: index.php?seccion=login");
+exit;
+}
 
 //captura de los datos del form 
 $nombre         = $_POST['nombre'];

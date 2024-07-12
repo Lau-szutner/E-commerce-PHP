@@ -91,7 +91,8 @@ unset($_SESSION['datosGuardados']);
             <label for="imagen">Imagen</label>
             <input type="file" name="imagen" id="imagen" class="form-control">
         </div>
-
-        <button type="submit" class="button">Añadir</button>    
+        <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-dark mt-3">Añadir</button> 
+        </div>   
     </form>
 </section>

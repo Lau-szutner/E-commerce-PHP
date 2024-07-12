@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <h2 class="card-title">Productos</h2>
                     <p class="card-text">Gestiona tus productos, añade nuevos y actualiza la información existente.</p>
-                    <a href="index.php?seccion=productos" class="btn btn-dark">Ver Productos</a>
+                    <a href="index.php?seccion=productos" class="btn btn-dark btn-hover-agrandar">Ver Productos</a>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <h2 class="card-title">Categorías</h2>
                     <p class="card-text">Administra las categorías de productos para una mejor organización.</p>
-                    <a href="index.php?seccion=categorias" class="btn btn-dark">Ver Categorías</a>
+                    <a href="index.php?seccion=categorias" class="btn btn-dark btn-hover-agrandar">Ver Categorías</a>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
                     <div class="card-body">
                         <h2 class="card-title">Usuarios</h2>
                         <p class="card-text">Gestiona los usuarios registrados y sus roles.</p>
-                        <a href="usuarios.php" class="btn btn-dark">Ver Usuarios</a>
+                        <a href="usuarios.php" class="btn btn-dark btn-hover-agrandar">Ver Usuarios</a>
                     </div>
                 </div>
             </div>

@@ -37,6 +37,7 @@ if (empty($descripcion)) {
 if (empty($precio) || $precio <= 0) {
     $errores['precio'] = "El precio debe ser un número positivo.";
 }
+
 if (!empty($imagen['tmp_name'])){
     $nombreImagen =    date('Ymd_His_') . $imagen['name'];
     move_uploaded_file($imagen['tmp_name'], __DIR__ . '/../../img/productos/' . $nombreImagen);
@@ -52,7 +53,7 @@ if (count($errores) > 0) {
 
     //recuperar datos (en caso de errores por ejemplo)
     $_SESSION['datosGuardados'] = $_POST;
-    header('Location: ../index.php?seccion=producto-editar');
+    header('Location: ../index.php?seccion=producto-editar&producto_id=' . $producto_id);
     exit;
 }
 
@@ -72,10 +73,16 @@ try {
         'precio'        => $precio, 
         'disponibilidad'=> $disponibilidad, 
         'categoria_id'  => $categoria_id,
-        'imagen'        => $imagen
+        'imagen'        => $nombreImagen ?? $producto->getImagen()
     ]);
 
-    // 5. Redireccionar.
+    if (!empty($imagen['tmp_name'])) {
+        $datosActualizar['imagen'] = $nombreImagen;
+    } else {
+        $datosActualizar['imagen'] = $producto->getImagen(); 
+    }
+
+    //Redireccion
     $_SESSION['mensajeFeedback'] = "Los datos del producto fueron actualizados con éxito.";
     $_SESSION['mensajeFeedbackTipo'] = "success";
 
@@ -85,6 +92,6 @@ try {
 } catch (Exception $e) {
     $_SESSION['mensajeFeedback'] = "Error: " . $e->getMessage();
     $_SESSION['mensajeFeedbackTipo'] = "danger";
-    header("Location: ../views/producto-editar.php?producto_id=" . $producto_id);
+    header("Location: ../views/producto-editar.php&producto_id=" . $producto_id);
     exit;
 }

@@ -45,6 +45,7 @@ $rutaConfig = $rutas[$vista];
   <link rel="icon" href="./img/icons/favicon.png">
 
   <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/admin.css">
 
 </head>
 

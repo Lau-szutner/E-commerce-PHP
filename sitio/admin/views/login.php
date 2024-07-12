@@ -10,9 +10,10 @@ unset($_SESSION['datosGuardados']);
 ?>
 
 
-<section>
+<section class="container" id="loginPantalla">
     <h1>Iniciar al Panel de Administración</h1>
 
+    <div class row>
     <form action="acciones/login.php" method="post">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" class="form-control" value="<?= htmlspecialchars($datosGuardados['email'] ?? ''); ?>">
@@ -38,7 +39,10 @@ unset($_SESSION['datosGuardados']);
                 endif;
             ?>  
 
-        <button type="submit" class="button"> Ingresar </button>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-dark mt-3">Iniciar sesión</button> 
+        </div>
 
     </form>
+    </div>
 </section>

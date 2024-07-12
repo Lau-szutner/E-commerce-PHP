@@ -84,6 +84,10 @@ unset($_SESSION['datosGuardados']);
 
             <label for="disponibilidad">Disponibilidad</label>
             <input type="number" id="disponibilidad" class="form-control" name="disponibilidad" value="<?= htmlspecialchars($datosGuardados['nombre'] ?? $producto->getDisponibilidad()); ?>" >
+           
+                <p class="ayuda-formulario mb-0">Si el producto esta disponible ingresa "1". </p>
+                <p class="ayuda-formulario">Si el producto <strong>NO</strong> está disponible ingresa "0".</p>
+            
         </div>
 
         <div>
@@ -103,11 +107,13 @@ unset($_SESSION['datosGuardados']);
 
             <label for="imagen">Imagen</label>
             <input type="file" name="imagen" id="imagen" class="form-control">
-            <div class="form-help" id="help-imagen">
-                <p>Si deseas conservar la imagen actual no realices cambios, de lo contrario subí tu nueva imagen. </p>
-            </div>
+            
+            <p class="ayuda-formulario">Si deseas conservar la imagen actual no realices cambios, de lo contrario subí tu nueva imagen. </p>
+        
         </div>
 
-        <button type="submit" class="button">Actualizar Datos</button>    
+        <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-dark mt-3">Actualizar datos</button> 
+        </div>    
     </form>
 </section>

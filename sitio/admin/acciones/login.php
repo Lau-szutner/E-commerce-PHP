@@ -39,7 +39,7 @@ if (count($errores) > 0) {
 
 $auth = new Autenticacion;
 if ($auth->iniciarSesion($email, $password)){
-  $_SESSION['mensajeFeedback'] = 'Hola! Bienvenido al Panel de Administracion de Paw Petshop';
+  $_SESSION['mensajeFeedback'] = 'Hola! Que bueno tenerte por aquí una vez más';
   $_SESSION['mensajeFeedBackTipo'] = 'warning';
 
   header('Location: ../index.php?seccion=dashboard');
