@@ -29,8 +29,10 @@ if (!isset($rutas[$vista])) {
   $vista = '404';
 }
 
+
 // Obtenemos las opciones/configuración de la ruta que corresponden a esta vista.
 $rutaConfig = $rutas[$vista];
+
 ?>
 
 <!DOCTYPE html>

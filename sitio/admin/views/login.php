@@ -11,7 +11,7 @@ unset($_SESSION['datosGuardados']);
 
 
 <section class="container" id="loginPantalla">
-    <h1>Iniciar al Panel de Administración</h1>
+    <h2>Iniciar al Panel de Administración</h2>
 
     <div class row>
     <form action="acciones/login.php" method="post">

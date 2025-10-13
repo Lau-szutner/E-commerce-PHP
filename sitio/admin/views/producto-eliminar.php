@@ -14,8 +14,8 @@ if (!$producto) {
 <section class="container mt-5" id="detalleDeProducto">
     <div class="row d-flex flex-column align-items-center">
         <div class="col">
-            <h1 class="text-center">Eliminar producto</h1>
-            <h2 class="text-center">¿Confirma que desea eliminar este producto?</h2>
+            <h2 class="text-center">Eliminar producto</h2>
+            <h3 class="text-center">¿Confirma que desea eliminar este producto?</h3>
             <p class="text-center">Tenga en cuenta que eliminar este producto es una acción irreversible</p>
         </div>
         <div class="col d-flex flex-column align-items-center">

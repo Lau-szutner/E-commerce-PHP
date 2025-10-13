@@ -9,7 +9,7 @@ $categoria = new Categoria ();
 ?>
 
 <section  class="container-fluid d-flex flex-column align-items-center">
-    <h1 class="p-5">Administración de productos </h1>
+    <h2 class="p-5">Administración de productos </h2>
 
     <div class="row p-3">
         <a href="index.php?seccion=producto-nuevo" class="btn btn-dark btn-hover-agrandar">Añadir producto</a>

@@ -6,7 +6,7 @@ $categorias = $categorias->todos();
 ?>
 
 <section id="sectionProductos">
-  <h1>Administracion de las categorías de los productos</h1>
+  <h2>Administracion de las categorías de los productos</h2>
   <table class="col table"> 
         <thead>   
             <tr>

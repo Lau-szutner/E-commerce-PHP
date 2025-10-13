@@ -1,9 +1,10 @@
 			<section id="servicios-container">
 				<div class="container ">
-					<h1 class="text-center p-5">Servicios</h1>
+
+					<h2 class="text-center p-5">Servicios</h2>
 					<div class="d-flex gap-2 flex-column">
 						<div class="col-12 mb-4 serviciosCard card text-center p-3 h-100 d-flex flex-colum">
-							<h2>Veterinaria</h2>
+							<h3>Veterinaria</h3>
 							<div class="d-flex flex-lg-row flex-column">
 								<img src="img/vete.jpg" alt="Veterinaria" class="img-fluid mb-3 rounded-2 col-12 col-lg-5  ">
 								<div class="p-3 d-flex flex-column justify-content-evenly">
@@ -17,8 +18,9 @@
 							</div>
 							<a href="index.php?seccion=contacto" class="btn btn-dark mt-auto w-100"> Pedir</a>
 						</div>
+
 						<div class="col-12 mb-4 serviciosCard card text-center p-3 h-100 d-flex flex-colum">
-							<h2>Guardería</h2>
+							<h3>Guardería</h3>
 							<div class="d-flex flex-lg-row flex-column">
 								<img src="img/guarderia.jpg" alt="Guardería" class="img-fluid mb-3 rounded-2 col-12 col-lg-5  ">
 								<div class="p-3 d-flex flex-column justify-content-evenly">
@@ -32,8 +34,9 @@
 							</div>
 							<a href="index.php?seccion=contacto" class="btn btn-dark mt-auto w-100"> Pedir</a>
 						</div>
+
 						<div class="col-12 mb-4 serviciosCard card text-center p-3 h-100 d-flex flex-colum">
-							<h2>Estilista Canino</h2>
+							<h3>Estilista Canino</h3>
 							<div class="d-flex flex-lg-row flex-column">
 								<img src="img/peluqueria.webp" alt="Peluquería canina" class="img-fluid mb-3 rounded-2 col-12 col-lg-5  ">
 								<div class="p-3 d-flex flex-column justify-content-evenly">
@@ -47,8 +50,9 @@
 							</div>
 							<a href="index.php?seccion=contacto" class="btn btn-dark mt-auto w-100"> Pedir</a>
 						</div>
+
 						<div class="col-12 mb-4 serviciosCard card text-center p-3 h-100 d-flex flex-colum">
-							<h2>Adiestramiento canino</h2>
+							<h3>Adiestramiento canino</h3>
 							<div class="d-flex flex-lg-row flex-column">
 								<img src="img/adiestramiento.jpg" alt="Adiestramiento canino" class="img-fluid mb-3 rounded-2 col-12 col-lg-5  ">
 								<div class="p-3 d-flex flex-column justify-content-evenly">
@@ -61,8 +65,10 @@
 								</div>
 							</div>
 							<a href="index.php?seccion=contacto" class="btn btn-dark mt-auto w-100"> Pedir</a>
+						</div>
+
 							<div class="col-12 mb-4 serviciosCard card text-center p-3 h-100 d-flex flex-colum">
-								<h2>Transporte de mascotas</h2>
+								<h3>Transporte de mascotas</h3>
 								<div class="d-flex flex-lg-row flex-column">
 									<img src="img/transporte.jpg" alt="Mascotas siendo transportadas" class="img-fluid mb-3 rounded-2 col-12 col-lg-5  ">
 									<div class="p-3 d-flex flex-column justify-content-evenly">

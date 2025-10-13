@@ -11,7 +11,7 @@ unset($_SESSION['errores']);
 
 <section class="container mt-5 mb-5">
 
-    <h1 class="pt-5">Añadir nueva categoria</h1>
+    <h2 class="pt-5">Añadir nueva categoria</h2>
 
     <form action="acciones/categoria-anadir.php" method="post" enctype="multipart/form-data">
         <div>

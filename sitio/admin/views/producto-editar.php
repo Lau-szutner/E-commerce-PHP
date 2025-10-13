@@ -16,7 +16,7 @@ unset($_SESSION['datosGuardados']);
 
 <section class="container mt-5 mb-5">
 
-    <h1 class="pt-5">Editar los datos del producto</h1>
+    <h2 class="pt-5">Editar los datos del producto</h2>
 
     <form action="acciones/producto-editar.php" method="post" enctype="multipart/form-data">
         <div>

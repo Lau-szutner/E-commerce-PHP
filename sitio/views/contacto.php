@@ -1,5 +1,5 @@
 <section class="container p-5 d-flex flex-column">
-    <h1 class="text-center">Contacto</h1>
+    <h2 class="text-center">Contacto</h2>
     <div class="row row-cols-1 row-cols-md-2 ">
         <form action="procesar.php" method="get" class="col d-flex flex-column mb-5" id="contactoForm">
             <label for="nombre">Nombre:</label>
