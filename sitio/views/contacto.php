@@ -27,7 +27,7 @@
         </form>
 
         <picture class="col ">
-            <img src="img/form.png" class="img-fluid w-100" alt="Gracias por tu mensaje, nos gusta escucharte">
+            <img src="img/form.png" class="img-fluid w-100" alt="Perro y gato felices diciendote gracias por tu mensaje, nos gusta escucharte">
         </picture>
     </div>
 </section>

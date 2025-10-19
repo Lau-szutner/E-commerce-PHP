@@ -56,7 +56,7 @@ $rutaConfig = $rutas[$vista];
     <nav class="navbar navbar-expand-md px-5 ">
       <div class="container-fluid d-flex justify-content-between">
         <a href="index.php?seccion=home" class="d-inline-flex link-body-emphasis text-decoration-none fs-5">
-          <img src="img/logoInvertido.png" alt="logo">
+          <img src="img/logoInvertido.png" alt="Logo de Paw Shop, una pata amarilla sobre fondo negro">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,17 +90,18 @@ $rutaConfig = $rutas[$vista];
   </main>
 
   <footer id="footer">
-    <div class="infoFooter d-flex flex-column align-items-center p-5">
-      <picture>
-        <img src="img/logo2.png" alt="logo">
-      </picture>
-      <p>PAW Petshop</p>
-      <div class="iconos d-flex gap-5">
-        <a href="#"><img src="img/icons/facebook.png" alt="icono de facebook"></a>
-        <a href="#"><img src="img/icons/instagram.png" alt="icono de instagram"></a>
-        <a href="#"><img src="img/icons/youtube.png" alt="icono de youtube"></a>
-      </div>
-    </div>
+   <div class="infoFooter d-flex flex-column align-items-center p-5">
+  <picture>
+    <img src="img/logo2.png" alt="Logo de Paw Shop">
+  </picture>
+  <p>PAW Petshop</p>
+  <div class="iconos d-flex gap-5">
+    <a href="#"><img src="img/icons/facebook.png" alt="Visitar Facebook de Paw Shop"></a>
+    <a href="#"><img src="img/icons/instagram.png" alt="Visitar Instagram de Paw Shop"></a>
+    <a href="#"><img src="img/icons/youtube.png" alt="Visitar canal de YouTube de Paw Shop"></a>
+  </div>
+</div>
+
 
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

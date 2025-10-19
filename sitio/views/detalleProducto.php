@@ -13,7 +13,7 @@ if (!$producto) {
 
 <section class="container" id="detalleDeProducto">
     <h2>Detalle del producto:</h2>
-    <div class="row">
+    <div class="row">   
         <picture class="col-md-6">
         <img src="<?= "img/productos/{$producto->getImagen()}"; ?>" alt="<?= $producto->getNombre(); ?>">
         </picture>

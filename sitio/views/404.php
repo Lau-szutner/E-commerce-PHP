@@ -5,7 +5,7 @@
     <h2 class="text-center">ERROR 404</h2>
     <article class="row d-flex">
     <picture class="col-3">
-        <img src="img/perrito-enojado.png" alt="perrito enojado" class="rounded img-fluid img-dashboard">
+        <img src="img/perrito-enojado.png" alt="Perrito enojado mostrando los dientes" class="rounded img-fluid img-dashboard">
     </picture>
     <div class="col">
         <p>¡Oh no! Página no encontrada</p>
@@ -49,7 +49,7 @@
         </div>
 
         <picture>
-        <img src="img/perrito-contento.png" alt="perrito contento" class="rounded img-fluid img-dashboard">
+        <img src="img/perrito-contento.png" alt="perrito content y feliz" class="rounded img-fluid img-dashboard">
         </picture>
     </article>
 </section>

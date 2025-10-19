@@ -9,7 +9,7 @@
                         <button class="btn">Comprar</button>
                     </div>
                 </div>
-                <img src="img/pedigree.jpeg" alt="Bolsa de comida Pedigree" class="col-lg-6 img-fluid">
+                <img src="img/pedigree.jpeg" alt="Bolsa de comida Pedigree de 15 kilos amarilla" class="col-lg-6 img-fluid">
             </section>
 
             <section id="servicios-container-home">
