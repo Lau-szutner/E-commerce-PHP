@@ -39,7 +39,10 @@ $rutas = [
   'categoria-nueva' => [
     'titulo' => 'Añadir Categoría',
     'requiereAutenticacion' => true,
-  ]
+  ],
+  'home' => [
+    'titulo' => 'Programacion II Parcial 1',
+  ],
 
 ];
 
@@ -123,9 +126,12 @@ unset($_SESSION['mensajeFeedbackTipo']);
         if (!$auth->estaAutenticado()):
         ?>
         <div class="login">
-            <form class="d-flex"> 
-              <button class="btn btn-outline-dark ">Login</button>
-            </form>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mx-auto">
+            <li><a href="../index.php?seccion=home" class="nav-link px-2 text-black">Home</a></li>
+
+          </ul>
+        </div>
         </div>
       </nav>
       <?php

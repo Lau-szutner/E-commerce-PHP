@@ -268,8 +268,15 @@ ALTER TABLE `producto`
 -- Filtros para la tabla `usuarios_tienen_productos`
 --
 ALTER TABLE `usuarios_tienen_productos`
-  ADD CONSTRAINT `usuarios_tienen_productos_ibfk_1` FOREIGN KEY (`productos_fk`) REFERENCES `producto` (`producto_id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuarios_tienen_productos_ibfk_2` FOREIGN KEY (`usuarios_fk`) REFERENCES `usuario` (`usuario_id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `usuarios_tienen_productos_ibfk_1` 
+    FOREIGN KEY (`productos_fk`) 
+    REFERENCES `producto` (`producto_id`) 
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE,
+  ADD CONSTRAINT `usuarios_tienen_productos_ibfk_2` 
+    FOREIGN KEY (`usuarios_fk`) 
+    REFERENCES `usuario` (`usuario_id`) 
+    ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuario_tiene_servicios`
