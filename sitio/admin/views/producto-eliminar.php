@@ -28,7 +28,7 @@ if (!$producto) {
     </div>
     <div class="row pt-5">
         <picture class="col-md-6">
-            <img src="<?= "../img/productos/{$producto->getImagen()}"; ?>" alt="<?php echo $producto->getNombre(); ?>">
+            <img src="<?= "../{$producto->getImagen()}"; ?>" alt="<?php echo $producto->getNombre(); ?>">
         </picture>
         <article class="col-md-6">
             <h2><?php echo $producto->getNombre(); ?></h2>

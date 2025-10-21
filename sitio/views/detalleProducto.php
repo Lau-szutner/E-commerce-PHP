@@ -11,11 +11,11 @@ if (!$producto) {
 }
 ?>
 
-<section class="container" id="detalleDeProducto">
+<section class="container pt-5" id="detalleDeProducto">
     <h2>Detalle del producto:</h2>
     <div class="row">   
         <picture class="col-md-6">
-        <img src="<?= "img/productos/{$producto->getImagen()}"; ?>" alt="<?= $producto->getNombre(); ?>">
+        <img src="<?= "{$producto->getImagen()}"; ?>" alt="<?= $producto->getNombre(); ?>">
         </picture>
         <article class="col-md-6">
             <h3><?php echo $producto->getNombre(); ?></h3>

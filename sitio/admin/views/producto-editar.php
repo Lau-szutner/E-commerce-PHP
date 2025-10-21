@@ -22,7 +22,7 @@ unset($_SESSION['datosGuardados']);
         <div>
             <input type="hidden" name="producto_id" value="<?= htmlspecialchars($producto->getProducto_id()); ?>">
             <!-- NOMBRE -->
-            <label for="nombre" class="form-label">Nombre del producto</label>
+            <label for="nombre" class="form-label fw-bold">Nombre del producto:</label>
             <input type="text" id="nombre" name="nombre" class="form-control" value="<?= htmlspecialchars($datosGuardados['nombre'] ?? $producto->getNombre()); ?>" >
             <?php
                 if(isset($errores['nombre'])):
@@ -38,8 +38,8 @@ unset($_SESSION['datosGuardados']);
         <div>
             <!-- DESCRIPCION -->
 
-            <label for="descripcion">Descripción</label>
-            <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Ingrese una descripción corta del producto aquí"><?= htmlspecialchars($datosGuardados['descripcion'] ?? $producto->getDescripcion()) ;?></textarea>
+            <label for="descripcion" class="form-label fw-bold">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" class="form-control " placeholder="Ingrese una descripción corta del producto aquí"><?= htmlspecialchars($datosGuardados['descripcion'] ?? $producto->getDescripcion()) ;?></textarea>
             <?php
                 if(isset($errores['descripcion'])):
             ?>  
@@ -54,13 +54,13 @@ unset($_SESSION['datosGuardados']);
         <div>
             <!-- CUERPO -->
 
-            <label for="cuerpo">Cuerpo</label>
+            <label for="cuerpo" class="form-label fw-bold" >Cuerpo:</label>
             <textarea id="cuerpo" name="cuerpo" class="form-control" placeholder="Ingrese una descripción más detallada. Añada toda la información relevante sobre el producto."><?= htmlspecialchars($datosGuardados['cuerpo'] ?? $producto->getCuerpo()); ?></textarea>
         </div>
 
         <div>
             <!-- PRECIO -->
-            <label for="precio">Precio</label>
+            <label for="precio" class="form-label fw-bold" >Precio:</label>
             <div class="input-group mb-3">
             <span class="input-group-text">$</span>
             <input type="number" id="precio" name="precio" class="form-control" value="<?= $datosGuardados['precio'] ?? $producto->getPrecio();?>" >
@@ -82,7 +82,7 @@ unset($_SESSION['datosGuardados']);
         <div>
             <!-- DISPONIBILIDAD -->
 
-            <label for="disponibilidad">Disponibilidad</label>
+            <label for="disponibilidad"  class="form-label fw-bold" >Disponibilidad:</label>
             <input type="number" id="disponibilidad" class="form-control" name="disponibilidad" value="<?= htmlspecialchars($datosGuardados['nombre'] ?? $producto->getDisponibilidad()); ?>" >
            
                 <p class="ayuda-formulario mb-0">Si el producto esta disponible ingresa "1". </p>
@@ -91,7 +91,7 @@ unset($_SESSION['datosGuardados']);
         </div>
 
         <div>
-        <label for="categoria_id">Categoría</label>
+        <label for="categoria_id" class="form-label fw-bold" >Categoría:</label>
         <!-- CATEGORIA -->
             <select name="categoria_id" id="categoria_id" class="form-select">
                 <?php foreach ($categorias as $categoria): ?>
