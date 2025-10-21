@@ -18,9 +18,17 @@
         }
 
         // Verificacion del password.
-        if(!password_verify($password, $fila['password'])) {
-            return false;
+        
+
+        // Esto no funciona ya que password_veryfy describra contraseñas echas con password_hash
+        // if(!password_verify($password, $fila['password'])) {
+        //   return false;
+        // }
+
+        if($password !== $fila['password']) {
+          return false;
         }
+
 
        
         $_SESSION['id'] = $fila['usuario_id'];

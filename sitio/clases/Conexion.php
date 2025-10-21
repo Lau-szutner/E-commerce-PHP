@@ -3,11 +3,11 @@
 class Conexion {
     protected const DB_SERVER = "localhost";
     protected const DB_USER = "root";
-    protected const DB_PASS = "root";
+    // const DB_PASS = "root"; // CONTRASEÑA PARA MAMP
+    const DB_PASS = ""; // CONTRASEÑA PARA XAMP
     protected const DB_NAME = "dw3_fernandezszutner_merlo";
     protected const DB_DSN = "mysql:host=" . self::DB_SERVER . ";dbname=" . self::DB_NAME . ";charset=utf8mb4";
     protected PDO $db_conn; //contiene la conexion a la base de datos
- 
 
     /**
      * Constructor para Conexion que asigna valor a $db_conn

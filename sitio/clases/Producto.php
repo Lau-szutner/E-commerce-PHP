@@ -14,10 +14,9 @@ class Producto {
     protected ?string $imagen = null;
     protected ?string $cuerpo = null;
     protected ?int $usuario_fk = null;
-   
-
-
     
+
+
 
 
     public function asignarDatos (array $data): void {

@@ -1,0 +1,15 @@
+# Correciones pendientes 
+
+C:\xampp\htdocs\E-commerce-PHP\sitio\clases\Autenticacion.php
+
+        // Verificacion del password.
+        
+
+        // Esto no funciona ya que password_veryfy describra contraseñas echas con password_hash
+        // if(!password_verify($password, $fila['password'])) {
+        //   return false;
+        // }
+
+        if($password !== $fila['password']) {
+          return false;
+        }

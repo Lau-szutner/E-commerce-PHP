@@ -39,7 +39,7 @@ $categoria = new Categoria ();
                     <td><?= $producto->getDisponibilidad(); ?> </td>
                     <td><?= $producto->getDescripcion(); ?> </td>
                     <td><?= $producto->getCategoria_id(); ?> </td>
-                    <td><img src="<?= "../img/productos/{$producto->getImagen()}"; ?>" alt="<?= $producto->getNombre(); ?>" class="img-fluid img-dashboard">
+                    <td><img src="<?="../{$producto->getImagen()}"; ?>" alt="<?= $producto->getNombre(); ?>" class="img-fluid img-dashboard">
                     <td>
                         <div class="d-flex flex-column">
                             <a href="index.php?seccion=producto-editar&producto_id=<?= $producto->getProducto_id(); ?>" class="btn btn-warning mr-2 btn-hover-agrandar m-1">Editar</a>

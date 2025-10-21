@@ -35,7 +35,7 @@ if (count($errores) > 0) {
     exit;
 }
 
- // HACEER
+ // HACER
 
 $auth = new Autenticacion;
 if ($auth->iniciarSesion($email, $password)){

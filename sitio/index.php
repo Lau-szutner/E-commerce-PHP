@@ -1,5 +1,6 @@
 <?php
 
+
 // whitelist
 $rutas = [
   'home' => [
