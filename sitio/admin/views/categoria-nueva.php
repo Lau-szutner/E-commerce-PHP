@@ -13,7 +13,7 @@ unset($_SESSION['errores']);
 
     <h2 class="pt-5">Añadir nueva categoria</h2>
 
-    <form action="acciones/categoria-anadir.php" method="post" enctype="multipart/form-data">
+    <form action="acciones/categoria-anadir.php" method="post" enctype="multipart/form-data" class="d-flex flex-column gap-4">
         <div>
             <label for="nombre">Nombre de la categoría nueva:</label>
             <input type="text" id="nombre" name="nombre">
@@ -26,6 +26,6 @@ unset($_SESSION['errores']);
             ?>   
         </div>
         
-        <button type="submit" class="button">Añadir</button>    
+        <button type="submit" class="btn btn-dark w-25">Añadir</button>    
     </form>
 </section>

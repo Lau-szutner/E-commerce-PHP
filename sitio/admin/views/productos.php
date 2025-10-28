@@ -15,7 +15,7 @@ $categoria = new Categoria ();
         <a href="index.php?seccion=producto-nuevo" class="btn btn-dark btn-hover-agrandar">Añadir producto</a>
     </div>
     <div class="row">
-    <table class="col table table-striped table-bordered ">
+    <table class="col table table-striped table-bordered">
         <thead>
             <tr>
                 <th scope="col">Id</th>

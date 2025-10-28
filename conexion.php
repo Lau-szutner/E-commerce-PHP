@@ -12,7 +12,7 @@ const DB_DSN = "mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . ";charset=utf8
 try {
     $conn = new PDO(DB_DSN, DB_USER, DB_PASS);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "conexion establecida";
+    
 } catch (PDOException $error) {
     echo 'error de conexion: ' . $error->getMessage();
     die("Error al conectar con el servidor");

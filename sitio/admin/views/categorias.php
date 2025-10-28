@@ -5,14 +5,20 @@ $categorias = new Categoria();
 $categorias = $categorias->todos();
 ?>
 
-<section id="sectionProductos">
-  <h2>Administracion de las categorías de los productos</h2>
-  <table class="col table"> 
+<section id=""  class="container-fluid d-flex flex-column align-items-center">
+
+  <h2  class="p-5">Administracion de las categorías de los productos</h2>
+
+  <div class="row p-3">
+    <a href="index.php?seccion=categoria-nueva" class="btn btn-dark btn-hover-agrandar">Añadir categoría</a>
+  </div>
+
+  <table class="col table table-striped table-bordered"> 
         <thead>   
             <tr>
-                <th>Id</th>
-                <th>Categoría</th>
-                <th>Acciones</th>
+                <th scope="col">Id</th>
+                <th scope="col">Categoría</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead> 
         <tbody>
@@ -33,5 +39,5 @@ $categorias = $categorias->todos();
         </tbody>  
     </table>
 
-    <a href="index.php?seccion=categoria-nueva">Añadir categoría</a>
+   
 </section>

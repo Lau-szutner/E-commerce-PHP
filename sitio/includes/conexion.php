@@ -17,7 +17,7 @@ try {
 
     //configurar el modo de excepcion
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "conexion establecida";
+    echo 
 } catch (Exception $e) {
     echo "<p>Error de conexion: {$e->getMessage()} </p>";
     echo "<p>En el archivo: {$e->getFile()} </p>";
