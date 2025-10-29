@@ -2,7 +2,7 @@
     <h2 class="text-center">Contacto</h2>
     <div class="row row-cols-1 row-cols-md-2 ">
         <form action="procesar.php" method="get" class="col d-flex flex-column mb-5 gap-4 p-3" id="contactoForm">
-            
+
             <label for="nombre" class="d-flex flex-column">
                 Nombre:
                 <input type="text" id="nombre" name="nombre" required>
