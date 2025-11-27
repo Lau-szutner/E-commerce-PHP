@@ -1,9 +1,10 @@
-<?php 
+<?php
 
 require_once __DIR__ . '/Conexion.php';
 
 
-class Categoria {
+class Categoria
+{
     protected int      $categoria_id;
     protected string   $nombre;
 
@@ -11,7 +12,8 @@ class Categoria {
      * @return self[]
      */
 
-    public function todos(): array {
+    public function todos(): array
+    {
         $conn = (new Conexion)->obtenerConexion();
         $consulta = "SELECT * FROM categoria";
         $stmt = $conn->prepare($consulta);
@@ -20,21 +22,21 @@ class Categoria {
         return $stmt->fetchAll();
     }
 
-    public function categoriaPorId() {
+    public function categoriaPorId()
+    {
         $conn = (new Conexion)->obtenerConexion();
         $consulta = "SELECT * FROM categoria
                     WHERE categoria_id = ?";
         $stmt = $conn->prepare($consulta);
         $stmt->execute([$this->categoria_id]);
         $stmt->setFetchMode(PDO::FETCH_CLASS,);
-        
     }
 
-    
+
 
     /**
      * Get the value of categoria_id
-     */ 
+     */
     public function getCategoria_id()
     {
         return $this->categoria_id;
@@ -44,7 +46,7 @@ class Categoria {
      * Set the value of categoria_id
      *
      * @return  self
-     */ 
+     */
     public function setCategoria_id($categoria_id)
     {
         $this->categoria_id = $categoria_id;
@@ -54,7 +56,7 @@ class Categoria {
 
     /**
      * Get the value of nombre
-     */ 
+     */
     public function getNombre()
     {
         return $this->nombre;
@@ -64,7 +66,7 @@ class Categoria {
      * Set the value of nombre
      *
      * @return  self
-     */ 
+     */
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
@@ -72,5 +74,3 @@ class Categoria {
         return $this;
     }
 }
-
-?>

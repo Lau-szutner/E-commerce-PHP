@@ -1,25 +1,27 @@
-<?php 
+<?php
 
 
 require_once __DIR__ . '/Conexion.php';
 
-class Producto {
-    
+class Producto
+{
+
     protected int $producto_id;
-    protected string $nombre; 
-    protected string $categoria_id; 
+    protected string $nombre;
+    protected string $categoria_id;
     protected string $descripcion;
     protected float $precio;
-    protected bool $disponibilidad; 
+    protected bool $disponibilidad;
     protected ?string $imagen = null;
     protected ?string $cuerpo = null;
     protected ?int $usuario_fk = null;
-    
 
 
 
 
-    public function asignarDatos (array $data): void {
+
+    public function asignarDatos(array $data): void
+    {
         $this->producto_id = $data['producto_id'];
         $this->nombre = $data['nombre'];
         $this->categoria_id = $data['categoria_id'];
@@ -29,27 +31,27 @@ class Producto {
         $this->imagen = $data['imagen'];
         $this->cuerpo = $data['cuerpo'];
         $this->usuario_fk = $data['usuario_fk'];
-
     }
     /** 
-    *@return self[]
-    */ 
+     *@return self[]
+     */
 
 
-    public function productosTodos(): array {
+    public function productosTodos(): array
+    {
         $conn = (new Conexion)->obtenerConexion();
         $consulta = "SELECT * FROM producto";
         $stmt = $conn->prepare($consulta);
         $stmt->setFetchMode(PDO::FETCH_CLASS, self::class);
-        $stmt->execute();   
-    
+        $stmt->execute();
+
         $productosTodos = $stmt->fetchAll();
         return $productosTodos;
-
     }
 
 
-    public function productoPorId($producto_id): ?self {
+    public function productoPorId($producto_id): ?self
+    {
         $conn = (new Conexion)->obtenerConexion();
 
         $consulta = "SELECT * FROM producto
@@ -60,15 +62,15 @@ class Producto {
         $stmt->setFetchMode(PDO::FETCH_CLASS, self::class);
         $producto = $stmt->fetch();
 
-        if (!$producto){
+        if (!$producto) {
             return null;
         }
         return $producto;
-        
     }
 
-     //Crea y guarda el producto en bd
-     public function crear(array $data){
+    //Crea y guarda el producto en bd
+    public function crear(array $data)
+    {
         $conn = (new Conexion)->obtenerConexion();
         $consulta = "INSERT INTO producto (nombre, 
                                             descripcion, 
@@ -84,7 +86,7 @@ class Producto {
                             :categoria_id, 
                             :imagen, 
                             :usuario_fk) ";
-         
+
         $stmt = $conn->prepare($consulta);
         $stmt->execute([
             'nombre'        => $data['nombre'],
@@ -97,10 +99,11 @@ class Producto {
         ]);
     }
 
-    public function actualizar(int $pk, array $data) {
-      $conn = (new Conexion)->obtenerConexion();
-      
-      $consulta = "UPDATE producto 
+    public function actualizar(int $pk, array $data)
+    {
+        $conn = (new Conexion)->obtenerConexion();
+
+        $consulta = "UPDATE producto 
                   SET 
                       nombre      = :nombre, 
                       descripcion = :descripcion, 
@@ -111,30 +114,30 @@ class Producto {
                       imagen      = :imagen
                   WHERE producto_id = :producto_id";
 
-      $stmt = $conn->prepare($consulta);
-      $stmt->execute([
-        'producto_id'   =>  $pk,
-        'nombre'        => $data['nombre'],
-        'descripcion'   => $data['descripcion'],
-        'cuerpo'        => $data['cuerpo'], 
-        'precio'        => $data['precio'], 
-        'disponibilidad'=> $data['disponibilidad'], 
-        'categoria_id'  => $data['categoria_id'],
-        'imagen'        => $data['imagen']
-    ]);
-    
-  }
+        $stmt = $conn->prepare($consulta);
+        $stmt->execute([
+            'producto_id'   =>  $pk,
+            'nombre'        => $data['nombre'],
+            'descripcion'   => $data['descripcion'],
+            'cuerpo'        => $data['cuerpo'],
+            'precio'        => $data['precio'],
+            'disponibilidad' => $data['disponibilidad'],
+            'categoria_id'  => $data['categoria_id'],
+            'imagen'        => $data['imagen']
+        ]);
+    }
 
 
 
- 
- 
+
+
     //Eliminar de la base de datos esta instancia
-    public function eliminar() {
+    public function eliminar()
+    {
         $conn = (new Conexion)->obtenerConexion();
 
         $consulta = "DELETE FROM producto
-                    WHERE producto_id = ?"; 
+                    WHERE producto_id = ?";
 
         $stmt = $conn->prepare($consulta);
         $stmt->execute([$this->producto_id]);
@@ -144,7 +147,7 @@ class Producto {
 
     /**
      * Get the value of producto_id
-     */ 
+     */
     public function getProducto_id()
     {
         return $this->producto_id;
@@ -154,7 +157,7 @@ class Producto {
      * Set the value of producto_id
      *
      * @return  self
-     */ 
+     */
     public function setProducto_id($producto_id)
     {
         $this->producto_id = (int)$producto_id;
@@ -164,7 +167,7 @@ class Producto {
 
     /**
      * Get the value of nombre
-     */ 
+     */
     public function getNombre()
     {
         return $this->nombre;
@@ -174,7 +177,7 @@ class Producto {
      * Set the value of nombre
      *
      * @return  self
-     */ 
+     */
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
@@ -184,7 +187,7 @@ class Producto {
 
     /**
      * Get the value of categoria_id
-     */ 
+     */
     public function getCategoria_id()
     {
         return $this->categoria_id;
@@ -194,7 +197,7 @@ class Producto {
      * Set the value of categoria_id
      *
      * @return  self
-     */ 
+     */
     public function setCategoria_id($categoria_id)
     {
         $this->categoria_id = $categoria_id;
@@ -204,7 +207,7 @@ class Producto {
 
     /**
      * Get the value of descripcion
-     */ 
+     */
     public function getDescripcion()
     {
         return $this->descripcion;
@@ -214,7 +217,7 @@ class Producto {
      * Set the value of descripcion
      *
      * @return  self
-     */ 
+     */
     public function setDescripcion($descripcion)
     {
         $this->descripcion = $descripcion;
@@ -224,7 +227,7 @@ class Producto {
 
     /**
      * Get the value of precio
-     */ 
+     */
     public function getPrecio()
     {
         return $this->precio;
@@ -234,7 +237,7 @@ class Producto {
      * Set the value of precio
      *
      * @return  self
-     */ 
+     */
     public function setPrecio($precio)
     {
         $this->precio = $precio;
@@ -244,7 +247,7 @@ class Producto {
 
     /**
      * Get the value of disponibilidad
-     */ 
+     */
     public function getDisponibilidad()
     {
         return $this->disponibilidad;
@@ -254,7 +257,7 @@ class Producto {
      * Set the value of disponibilidad
      *
      * @return  self
-     */ 
+     */
     public function setDisponibilidad($disponibilidad)
     {
         $this->disponibilidad = $disponibilidad;
@@ -264,7 +267,7 @@ class Producto {
 
     /**
      * Get the value of imagen
-     */ 
+     */
     public function getImagen()
     {
         return $this->imagen;
@@ -274,7 +277,7 @@ class Producto {
      * Set the value of imagen
      *
      * @return  self
-     */ 
+     */
     public function setImagen($imagen)
     {
         $this->imagen = $imagen;
@@ -284,7 +287,7 @@ class Producto {
 
     /**
      * Get the value of cuerpo
-     */ 
+     */
     public function getCuerpo()
     {
         return $this->cuerpo;
@@ -294,7 +297,7 @@ class Producto {
      * Set the value of cuerpo
      *
      * @return  self
-     */ 
+     */
     public function setCuerpo($cuerpo)
     {
         $this->cuerpo = $cuerpo;
@@ -304,7 +307,7 @@ class Producto {
 
     /**
      * Get the value of usuario_fk
-     */ 
+     */
     public function getUsuario_fk()
     {
         return $this->usuario_fk;
@@ -314,7 +317,7 @@ class Producto {
      * Set the value of usuario_fk
      *
      * @return  self
-     */ 
+     */
     public function setUsuario_fk($usuario_fk)
     {
         $this->usuario_fk = $usuario_fk;
@@ -322,6 +325,3 @@ class Producto {
         return $this;
     }
 }
-?>
-
-

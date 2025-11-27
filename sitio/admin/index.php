@@ -5,44 +5,44 @@ session_start();
 require_once __DIR__ . '/../clases/Autenticacion.php';
 
 $rutas = [
-  'dashboard' => [
-    'titulo' => 'Panel',
-    'requiereAutenticacion' => true,
-  ],
-  'productos' => [
-    'titulo' => 'Productos',
-    'requiereAutenticacion' => true,
+    'dashboard' => [
+        'titulo' => 'Panel',
+        'requiereAutenticacion' => true,
     ],
-  'login' => [
-    'titulo' => 'Iniciar sesion',
-  ],
-  '404' => [
-    'titulo' => 'Página no Encontrada',
-  ],
-  'producto-eliminar' => [
-    'titulo' => 'Eliminar Producto',
-    'requiereAutenticacion' => true,
-  ],
-  'producto-nuevo' => [
-    'titulo' => 'Añadir Producto',
-    'requiereAutenticacion' => true,
+    'productos' => [
+        'titulo' => 'Productos',
+        'requiereAutenticacion' => true,
+    ],
+    'login' => [
+        'titulo' => 'Iniciar sesion',
+    ],
+    '404' => [
+        'titulo' => 'Página no Encontrada',
+    ],
+    'producto-eliminar' => [
+        'titulo' => 'Eliminar Producto',
+        'requiereAutenticacion' => true,
+    ],
+    'producto-nuevo' => [
+        'titulo' => 'Añadir Producto',
+        'requiereAutenticacion' => true,
 
-  ],
-  'producto-editar' => [
-    'titulo' => 'Editar producto',
-    'requiereAutenticacion' => true,
-  ],
-  'categorias' => [
-    'titulo' => 'Categorías',
-    'requiereAutenticacion' => true,
-  ],
-  'categoria-nueva' => [
-    'titulo' => 'Añadir Categoría',
-    'requiereAutenticacion' => true,
-  ],
-  'home' => [
-    'titulo' => 'Programacion II Parcial 1',
-  ],
+    ],
+    'producto-editar' => [
+        'titulo' => 'Editar producto',
+        'requiereAutenticacion' => true,
+    ],
+    'categorias' => [
+        'titulo' => 'Categorías',
+        'requiereAutenticacion' => true,
+    ],
+    'categoria-nueva' => [
+        'titulo' => 'Añadir Categoría',
+        'requiereAutenticacion' => true,
+    ],
+    'home' => [
+        'titulo' => 'Programacion II Parcial 1',
+    ],
 
 ];
 
@@ -61,11 +61,11 @@ $auth = new Autenticacion;
 
 //verificacion si requiere autenticacion
 $requiereAutenticacion = $rutaConfig['requiereAutenticacion'] ?? false;
-if($requiereAutenticacion && !$auth->estaAutenticado()) {
-  $_SESSION['mensajeFeedback'] = "Se necesita haber iniciado sesion para tener acceso a esta pantalla";
-  $_SESSION['mensajeFeedbackTipo'] = "danger";
-  header("Location: index.php?seccion=login");
-  exit;
+if ($requiereAutenticacion && !$auth->estaAutenticado()) {
+    $_SESSION['mensajeFeedback'] = "Se necesita haber iniciado sesion para tener acceso a esta pantalla";
+    $_SESSION['mensajeFeedbackTipo'] = "danger";
+    header("Location: index.php?seccion=login");
+    exit;
 }
 
 $mensajeFeedback = $_SESSION['mensajeFeedback'] ?? null;
@@ -79,7 +79,7 @@ unset($_SESSION['mensajeFeedbackTipo']);
 <!DOCTYPE html>
 <html lang="es">
 
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $rutaConfig['titulo']; ?></title>
@@ -87,95 +87,95 @@ unset($_SESSION['mensajeFeedbackTipo']);
     <link rel="icon" href="../img/icons/favicon.png">
     <link rel="stylesheet" href="../css/home.css">
     <link rel="stylesheet" href="../css/admin.css">
-  </head>
-	
-  <body class="mt-5">
+</head>
+
+<body class="mt-5">
     <header>
-      <nav class="navbar navbar-expand-md fixed-top px-5">
-        <?php
-        if($auth->estaAutenticado()):
-        ?>
-          <div class="container-fluid d-flex justify-content-between">
-            <a href="../index.php?seccion=home" class="d-inline-flex link-body-emphasis text-decoration-none fs-5">
-              <img src="../img/logoInvertido.png" alt="logo">
-            </a>
+        <nav class="navbar navbar-expand-md fixed-top px-5">
+            <?php
+            if ($auth->estaAutenticado()):
+            ?>
+                <div class="container-fluid d-flex justify-content-between">
+                    <a href="../index.php?seccion=home" class="d-inline-flex link-body-emphasis text-decoration-none fs-5">
+                        <img src="../img/logoInvertido.png" alt="logo">
+                    </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon" id="ol"></span>
-            </button>
-            
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon" id="ol"></span>
+                    </button>
 
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav mx-auto">
-                <li><a href="index.php?seccion=dashboard" class="nav-link px-2 text-black btn-hover-agrandar">Panel</a></li>
-                <li><a href="index.php?seccion=productos" class="nav-link px-2 text-black btn-hover-agrandar">Productos</a></li>
-                <li><a href="index.php?seccion=categorias" class="nav-link px-2 text-black btn-hover-agrandar">Categorías</a></li>
-              </ul>
-            </div>
-            <div class="login">
-              <form action="acciones/logout.php" class="d-flex" method="post"> 
-                <button type="submit"  class="btn btn-outline-dark ">Log out</button>
-              </form>
-            </div>
-          </div>
-        <?php
-        endif;
-        ?>
-            
-        <?php
-        if (!$auth->estaAutenticado()):
-        ?>
-        <div class="login">
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mx-auto">
-            <li><a href="../index.php?seccion=home" class="nav-link px-2 text-black">Home</a></li>
 
-          </ul>
-        </div>
-        </div>
-      </nav>
-      <?php
-      endif;
-      ?>
-      
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mx-auto">
+                            <li><a href="index.php?seccion=dashboard" class="nav-link px-2 text-black btn-hover-agrandar">Panel</a></li>
+                            <li><a href="index.php?seccion=productos" class="nav-link px-2 text-black btn-hover-agrandar">Productos</a></li>
+                            <li><a href="index.php?seccion=categorias" class="nav-link px-2 text-black btn-hover-agrandar">Categorías</a></li>
+                        </ul>
+                    </div>
+                    <div class="login">
+                        <form action="acciones/logout.php" class="d-flex" method="post">
+                            <button type="submit" class="btn btn-outline-dark ">Log out</button>
+                        </form>
+                    </div>
+                </div>
+            <?php
+            endif;
+            ?>
+
+            <?php
+            if (!$auth->estaAutenticado()):
+            ?>
+                <div class="login">
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav mx-auto">
+                            <li><a href="../index.php?seccion=home" class="nav-link px-2 text-black">Home</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+        </nav>
+    <?php
+            endif;
+    ?>
+
 
     </header>
 
     <main class="mt-5 p-5">
-      <?php
-      if($mensajeFeedback !== null):
-      ?>
+        <?php
+        if ($mensajeFeedback !== null):
+        ?>
 
-        <div class="alert alert-<?=$mensajeFeedbackTipo; ?> alert-dismissible fade show " role="alert">
-          <strong><?= $mensajeFeedback;?></strong>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-        </div>
+            <div class="alert alert-<?= $mensajeFeedbackTipo; ?> alert-dismissible fade show " role="alert">
+                <strong><?= $mensajeFeedback; ?></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+            </div>
 
-      <?php
-      endif;
-      ?> 
+        <?php
+        endif;
+        ?>
 
-      <?php
-      require __DIR__.'/views/'.$vista.'.php';
-      ?>
+        <?php
+        require __DIR__ . '/views/' . $vista . '.php';
+        ?>
 
     </main>
 
     <footer id="footer">
-      <div class="infoFooter d-flex flex-column align-items-center p-5">
-        <picture>
-          <img src="../img/logo2.png" alt="logo">
-        </picture>
-        <p>PAW Petshop
-        <p>
-        <div class="iconos d-flex gap-5">
-          <a href="#"><img src="../img/icons/facebook.png" alt="icono de facebook"></a>
-          <a href="#"><img src="../img/icons/instagram.png" alt="icono de instagram"></a>
-          <a href="#"><img src="../img/icons/youtube.png" alt="icono de youtube"></a>
+        <div class="infoFooter d-flex flex-column align-items-center p-5">
+            <picture>
+                <img src="../img/logo2.png" alt="logo">
+            </picture>
+            <p>PAW Petshop
+            <p>
+            <div class="iconos d-flex gap-5">
+                <a href="#"><img src="../img/icons/facebook.png" alt="icono de facebook"></a>
+                <a href="#"><img src="../img/icons/instagram.png" alt="icono de instagram"></a>
+                <a href="#"><img src="../img/icons/youtube.png" alt="icono de youtube"></a>
+            </div>
         </div>
-      </div>
     </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>

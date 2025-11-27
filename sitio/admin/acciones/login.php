@@ -15,11 +15,11 @@ $password = $_POST['password'];
 $errores = [];
 
 //validando los campos
-if(empty($email)) {
+if (empty($email)) {
     $errores['email'] = 'El e-mail no puede quedar vacío';
-} 
+}
 
-if(empty($password)){
+if (empty($password)) {
     $errores['password'] = 'La contraseña no puede quedar vacía';
 }
 
@@ -35,19 +35,19 @@ if (count($errores) > 0) {
     exit;
 }
 
- // HACER
+// HACER
 
 $auth = new Autenticacion;
-if ($auth->iniciarSesion($email, $password)){
-  $_SESSION['mensajeFeedback'] = 'Hola! Que bueno tenerte por aquí una vez más';
-  $_SESSION['mensajeFeedBackTipo'] = 'warning';
+if ($auth->iniciarSesion($email, $password)) {
+    $_SESSION['mensajeFeedback'] = 'Hola! Que bueno tenerte por aquí una vez más';
+    $_SESSION['mensajeFeedBackTipo'] = 'warning';
 
-  header('Location: ../index.php?seccion=dashboard');
-  exit;
-}else{
-  $_SESSION['mensajeFeedback'] = 'Los datos ingresados no coinciden con nuestros registros';
-  $_SESSION['mensajeFeedbackTipo'] = "danger";
+    header('Location: ../index.php?seccion=dashboard');
+    exit;
+} else {
+    $_SESSION['mensajeFeedback'] = 'Los datos ingresados no coinciden con nuestros registros';
+    $_SESSION['mensajeFeedbackTipo'] = "danger";
 
-  header('Location: ../index.php?seccion=login');
-  exit;
+    header('Location: ../index.php?seccion=login');
+    exit;
 }

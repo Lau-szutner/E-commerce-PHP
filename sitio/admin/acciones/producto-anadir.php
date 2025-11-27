@@ -7,11 +7,11 @@ session_start();
 require_once __DIR__ . '/../../clases/Autenticacion.php';
 
 $auth = new Autenticacion;
-if($requiereAutenticacion && !$auth->estaAutenticado()) {
-$_SESSION['mensajeFeedback'] = "Se necesita haber iniciado sesion para tener acceso a esta pantalla";
-$_SESSION['mensajeFeedbackTipo'] = "danger";
-header("Location: index.php?seccion=login");
-exit;
+if ($requiereAutenticacion && !$auth->estaAutenticado()) {
+    $_SESSION['mensajeFeedback'] = "Se necesita haber iniciado sesion para tener acceso a esta pantalla";
+    $_SESSION['mensajeFeedbackTipo'] = "danger";
+    header("Location: index.php?seccion=login");
+    exit;
 }
 
 //captura de los datos del form 
@@ -29,22 +29,21 @@ $imagen         = $_FILES['imagen'];
 $errores = [];
 
 //validando los campos
-if(empty($nombre)) {
+if (empty($nombre)) {
     $errores['nombre'] = 'El nombre no puede quedar vacío';
-} 
+}
 
-if(empty($descripcion)){
+if (empty($descripcion)) {
     $errores['descripcion'] = 'La descripción no puede quedar vacía';
 }
 
-if(empty($precio)) {
+if (empty($precio)) {
     $errores['precio'] = 'El precio debe contener un valor';
 }
 
-if (!empty($imagen['tmp_name'])){
-   $nombreImagen =    date('Ymd_His_') . $imagen['name'];
-   move_uploaded_file($imagen['tmp_name'], __DIR__ . '/../../img/productos/' . $nombreImagen);
-
+if (!empty($imagen['tmp_name'])) {
+    $nombreImagen =    date('Ymd_His_') . $imagen['name'];
+    move_uploaded_file($imagen['tmp_name'], __DIR__ . '/../../img/productos/' . $nombreImagen);
 }
 
 if (count($errores) > 0) {
@@ -70,12 +69,12 @@ try { //anadir con clase Producto
         'descripcion'   => $descripcion,
         'cuerpo'        => $cuerpo,
         'precio'        => $precio,
-        'disponibilidad'=> $disponibilidad,
+        'disponibilidad' => $disponibilidad,
         'categoria_id'  => $categoria_id,
         'imagen'        => $nombreImagen ?? null,
         'usuario_fk'    => 1
     ]);
-    
+
     //redirecciona a otra pantalla
     //variables de sesion:  manera de almacenar información sobre un usuario a lo largo de su visita a un sitio web.
     $_SESSION['mensajeFeedback'] = 'El producto fue añadido exitosamente!';
@@ -88,6 +87,3 @@ try { //anadir con clase Producto
     header('Location: ../index.php?seccion=producto-nuevo');
     exit;
 }
-
-
-?>

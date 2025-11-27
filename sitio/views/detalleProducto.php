@@ -13,9 +13,9 @@ if (!$producto) {
 
 <section class="container pt-5" id="detalleDeProducto">
     <h2>Detalle del producto:</h2>
-    <div class="row">   
+    <div class="row">
         <picture class="col-md-6">
-        <img src="<?= "{$producto->getImagen()}"; ?>" alt="<?= $producto->getNombre(); ?>">
+            <img src="<?= "{$producto->getImagen()}"; ?>" alt="<?= $producto->getNombre(); ?>">
         </picture>
         <article class="col-md-6">
             <h3><?php echo $producto->getNombre(); ?></h3>

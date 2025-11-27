@@ -7,22 +7,22 @@ session_start();
 
 //$auth = new Autenticacion;
 //if($requiereAutenticacion && !$auth->estaAutenticado()) {
-  //  $_SESSION['mensajeFeedback'] = "Se necesita haber iniciado sesion para tener acceso a esta pantalla";
-  //  $_SESSION['mensajeFeedbackTipo'] = "danger";
-  //  header("Location: index.php?seccion=login");
-  //  exit;
- // }
+//  $_SESSION['mensajeFeedback'] = "Se necesita haber iniciado sesion para tener acceso a esta pantalla";
+//  $_SESSION['mensajeFeedbackTipo'] = "danger";
+//  header("Location: index.php?seccion=login");
+//  exit;
+// }
 
 
 
 // Captura de los datos del formulario si se ha enviado
 $producto_id        = $_POST['producto_id'];
-$nombre             = $_POST['nombre'] ;
-$descripcion        = $_POST['descripcion'] ;
-$cuerpo             = $_POST['cuerpo'] ;
+$nombre             = $_POST['nombre'];
+$descripcion        = $_POST['descripcion'];
+$cuerpo             = $_POST['cuerpo'];
 $precio             = $_POST['precio'] ?? 0;
-$disponibilidad     = $_POST['disponibilidad'] ;
-$categoria_id       = $_POST['categoria_id'] ;
+$disponibilidad     = $_POST['disponibilidad'];
+$categoria_id       = $_POST['categoria_id'];
 $imagen             = $_FILES['imagen'];
 
 // Validaciones de los campos
@@ -38,11 +38,10 @@ if (empty($precio) || $precio <= 0) {
     $errores['precio'] = "El precio debe ser un número positivo.";
 }
 
-if (!empty($imagen['tmp_name'])){
+if (!empty($imagen['tmp_name'])) {
     $nombreImagen =    date('Ymd_His_') . $imagen['name'];
     move_uploaded_file($imagen['tmp_name'], __DIR__ . '/../../img/productos/' . $nombreImagen);
- 
- }
+}
 
 
 // Si hay errores
@@ -62,16 +61,16 @@ if (count($errores) > 0) {
 
 try {
     $producto = (new Producto)->productoPorId($producto_id);  //el que habiamos capturado antes
-    
+
     // Actualización del producto
 
     (new Producto)->actualizar($producto_id, [
         'producto_id'   =>  $producto_id,
         'nombre'        => $nombre,
         'descripcion'   => $descripcion,
-        'cuerpo'        => $cuerpo, 
-        'precio'        => $precio, 
-        'disponibilidad'=> $disponibilidad, 
+        'cuerpo'        => $cuerpo,
+        'precio'        => $precio,
+        'disponibilidad' => $disponibilidad,
         'categoria_id'  => $categoria_id,
         'imagen'        => $nombreImagen ?? $producto->getImagen()
     ]);
@@ -79,7 +78,7 @@ try {
     if (!empty($imagen['tmp_name'])) {
         $datosActualizar['imagen'] = $nombreImagen;
     } else {
-        $datosActualizar['imagen'] = $producto->getImagen(); 
+        $datosActualizar['imagen'] = $producto->getImagen();
     }
 
     //Redireccion
@@ -88,7 +87,6 @@ try {
 
     header('Location: ../index.php?seccion=productos');
     exit;
-
 } catch (Exception $e) {
     $_SESSION['mensajeFeedback'] = "Error: " . $e->getMessage();
     $_SESSION['mensajeFeedbackTipo'] = "danger";

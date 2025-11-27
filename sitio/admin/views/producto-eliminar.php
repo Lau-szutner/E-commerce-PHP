@@ -41,5 +41,5 @@ if (!$producto) {
         <h3>Descripción</h3>
         <div><?php echo $producto->getCuerpo(); ?></div>
     </article>
-    
+
 </section>

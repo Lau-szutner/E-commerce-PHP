@@ -18,14 +18,14 @@ unset($_SESSION['errores']);
             <label for="nombre">Nombre de la categoría nueva:</label>
             <input type="text" id="nombre" name="nombre">
             <?php
-                if(isset($errores['nombre'])):
-            ?>  
-                <div class="msg-error"><span class="visually-hidden">Error: </span><?= $errores['nombre'];?></div>
+            if (isset($errores['nombre'])):
+            ?>
+                <div class="msg-error"><span class="visually-hidden">Error: </span><?= $errores['nombre']; ?></div>
             <?php
-                endif;
-            ?>   
+            endif;
+            ?>
         </div>
-        
-        <button type="submit" class="btn btn-dark w-25">Añadir</button>    
+
+        <button type="submit" class="btn btn-dark w-25">Añadir</button>
     </form>
 </section>

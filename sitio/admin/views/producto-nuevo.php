@@ -27,7 +27,7 @@ unset($_SESSION['datosGuardados']);
                 <input type="text" id="nombre" name="nombre" class="form-control" value="<?= htmlspecialchars($datosGuardados['nombre'] ?? '') ?>" required>
             </label>
 
-            <?php if(isset($errores['nombre'])): ?>
+            <?php if (isset($errores['nombre'])): ?>
                 <div class="alert alert-danger mt-2" role="alert"><?= htmlspecialchars($errores['nombre']); ?></div>
             <?php endif; ?>
         </div>
@@ -38,7 +38,7 @@ unset($_SESSION['datosGuardados']);
                 <textarea id="descripcion" name="descripcion" class="form-control" rows="3" placeholder="Ingrese una descripción corta del producto aquí" required><?= htmlspecialchars($datosGuardados['descripcion'] ?? '') ?></textarea>
             </label>
 
-            <?php if(isset($errores['descripcion'])): ?>
+            <?php if (isset($errores['descripcion'])): ?>
                 <div class="alert alert-danger mt-2" role="alert"><?= htmlspecialchars($errores['descripcion']); ?></div>
             <?php endif; ?>
         </div>
@@ -59,7 +59,7 @@ unset($_SESSION['datosGuardados']);
                 </div>
             </label>
 
-            <?php if(isset($errores['precio'])): ?>
+            <?php if (isset($errores['precio'])): ?>
                 <div class="alert alert-danger mt-2" role="alert"><?= htmlspecialchars($errores['precio']); ?></div>
             <?php endif; ?>
         </div>
@@ -77,7 +77,7 @@ unset($_SESSION['datosGuardados']);
                 <select name="categoria_id" id="categoria_id" class="form-select" required>
                     <option value="" disabled <?= empty($datosGuardados['categoria_id']) ? 'selected' : '' ?>>Seleccione una categoría</option>
                     <?php foreach ($categorias as $categoria): ?>
-                        <option value="<?= htmlspecialchars($categoria->getCategoria_id()); ?>" <?= ($categoria->getCategoria_id() == ($datosGuardados['categoria_id'] ?? null)) ? 'selected' : '' ; ?>>
+                        <option value="<?= htmlspecialchars($categoria->getCategoria_id()); ?>" <?= ($categoria->getCategoria_id() == ($datosGuardados['categoria_id'] ?? null)) ? 'selected' : ''; ?>>
                             <?= htmlspecialchars($categoria->getNombre()); ?>
                         </option>
                     <?php endforeach; ?>
