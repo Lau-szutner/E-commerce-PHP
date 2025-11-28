@@ -13,7 +13,7 @@ unset($_SESSION['datosGuardados']);
 <section class="container" id="loginPantalla">
     <h2>Iniciar al Panel de Administración</h2>
 
-    <div class row>
+    <div>
         <form action="acciones/login.php" method="post">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" class="form-control" value="<?= htmlspecialchars($datosGuardados['email'] ?? ''); ?>">

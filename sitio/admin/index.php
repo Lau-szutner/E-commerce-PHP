@@ -92,10 +92,11 @@ unset($_SESSION['mensajeFeedbackTipo']);
 <body class="mt-5">
     <header>
         <nav class="navbar navbar-expand-md fixed-top px-5">
-            <?php
-            if ($auth->estaAutenticado()):
-            ?>
+
+            <?php if ($auth->estaAutenticado()): ?>
+
                 <div class="container-fluid d-flex justify-content-between">
+
                     <a href="../index.php?seccion=home" class="d-inline-flex link-body-emphasis text-decoration-none fs-5">
                         <img src="../img/logoInvertido.png" alt="logo">
                     </a>
@@ -104,7 +105,6 @@ unset($_SESSION['mensajeFeedbackTipo']);
                         <span class="navbar-toggler-icon" id="ol"></span>
                     </button>
 
-
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav mx-auto">
                             <li><a href="index.php?seccion=dashboard" class="nav-link px-2 text-black btn-hover-agrandar">Panel</a></li>
@@ -112,34 +112,40 @@ unset($_SESSION['mensajeFeedbackTipo']);
                             <li><a href="index.php?seccion=categorias" class="nav-link px-2 text-black btn-hover-agrandar">Categorías</a></li>
                         </ul>
                     </div>
+
                     <div class="login">
                         <form action="acciones/logout.php" class="d-flex" method="post">
-                            <button type="submit" class="btn btn-outline-dark ">Log out</button>
+                            <button type="submit" class="btn btn-outline-dark">Log out</button>
                         </form>
                     </div>
-                </div>
-            <?php
-            endif;
-            ?>
 
-            <?php
-            if (!$auth->estaAutenticado()):
-            ?>
-                <div class="login">
+                </div>
+
+            <?php else: ?>
+
+                <div class="container-fluid d-flex justify-content-between">
+
+                    <a href="../index.php?seccion=home" class="d-inline-flex link-body-emphasis text-decoration-none fs-5">
+                        <img src="../img/logoInvertido.png" alt="logo">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav mx-auto">
                             <li><a href="../index.php?seccion=home" class="nav-link px-2 text-black">Home</a></li>
-
                         </ul>
                     </div>
+
                 </div>
+
+            <?php endif; ?>
+
         </nav>
-    <?php
-            endif;
-    ?>
-
-
     </header>
+
 
     <main class="mt-5 p-5">
         <?php
