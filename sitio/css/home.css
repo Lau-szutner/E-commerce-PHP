@@ -1,7 +1,7 @@
-@import url("productos.css");
-@import url("contacto.css");
-@import url("servicios.css");
-@import url("error.css");
+@import url('productos.css');
+@import url('contacto.css');
+@import url('servicios.css');
+@import url('error.css');
 
 :root {
   --color-primario: #ffa600; /* Rojo */
@@ -32,7 +32,6 @@ nav {
 /* Home Servicios */
 #servicios-container-home {
   background-color: var(--color-primario);
-
   width: 100%;
 }
 

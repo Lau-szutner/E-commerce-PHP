@@ -9,7 +9,7 @@
                     <div class="mt-5">
                         <h2>Productos</h2>
                         <p>Compra todo para tus amigos de 4 patas</p>
-                        <button class="btn">Comprar</button>
+                        <button class="btn btn-hover-agrandar">Comprar</button>
                     </div>
                 </div>
                 <img src="img/pedigree.jpeg" alt="Bolsa de comida Pedigree" class="col-lg-6 img-fluid">

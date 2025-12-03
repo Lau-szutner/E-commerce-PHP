@@ -11,4 +11,7 @@ Comision DW3TAV
 Docente: Santiago Gallino
 Carácter de entrega: 2do parcial
 
+Credenciales:
+-usuario: pedromartin@gmail.com
+-password: holamundo
 

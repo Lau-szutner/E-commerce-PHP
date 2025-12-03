@@ -90,6 +90,15 @@ unset($_SESSION['datosGuardados']);
         <div>
             <label for="imagen">Imagen</label>
             <input type="file" name="imagen" id="imagen" class="form-control">
+            <?php
+                if(isset($errores['imagen'])):
+            ?>  
+                <div class="alert alert alert-danger" role="alert">
+                    <?= $errores['imagen']; ?>
+                </div>
+            <?php
+                endif;
+            ?> 
         </div>
         <div class="d-grid gap-2">
         <button type="submit" class="btn btn-dark mt-3">Añadir</button> 
