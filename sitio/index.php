@@ -20,6 +20,9 @@ $rutas = [
   'detalleProducto' => [
     'titulo' => 'Detalle del Producto',
   ],
+  'carrito' => [
+    'titulo' => 'carrito',
+  ],
 ];
 
 $vista = $_GET['seccion'] ?? 'home';

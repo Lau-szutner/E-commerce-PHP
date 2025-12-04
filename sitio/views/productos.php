@@ -1,12 +1,12 @@
 <?php
-// require __DIR__.'/../data/productos.php';
-//require __DIR__.'/../biblioteca/productos.php';
-//$productos = productosTodos();
+session_start();
 
 require_once __DIR__ . '/../clases/Producto.php';
+
 $productosObj = new Producto();
 $productos = $productosObj->productosTodos();
 ?>
+
 <section id="sectionProductos" class="container-fluid d-flex flex-column align-items-center">
   <h1 class="p-5">Productos</h1>
   <div class="container row row-cols-1 row-cols-sm-2 row-cols-md-3">
