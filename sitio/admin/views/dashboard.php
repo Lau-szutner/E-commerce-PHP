@@ -22,14 +22,14 @@
             </div>
         </div>
         <div class="col-md-6 col-lg-3 mb-4">
-                <div class="card h-100 shadow p-3 mb-5 bg-body-tertiary rounded">
-                    <div class="card-body">
-                        <h2 class="card-title">Usuarios</h2>
-                        <p class="card-text">Gestiona los usuarios registrados y sus roles.</p>
-                        <a href="usuarios.php" class="btn btn-dark btn-hover-agrandar">Ver Usuarios</a>
-                    </div>
+            <div class="card h-100 shadow p-3 mb-5 bg-body-tertiary rounded">
+                <div class="card-body">
+                    <h2 class="card-title">Usuarios</h2>
+                    <p class="card-text">Gestiona los usuarios registrados y sus roles.</p>
+                    <a href="usuarios.php" class="btn btn-dark btn-hover-agrandar">Ver Usuarios</a>
                 </div>
             </div>
+        </div>
 
     </article>
 </section>

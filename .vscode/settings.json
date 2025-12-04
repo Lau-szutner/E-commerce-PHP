@@ -1,0 +1,41 @@
+{
+    // Versión de PHP usada en el proyecto
+    "intelephense.environment.phpVersion": "8.2",
+    // Autocompletado y análisis
+    "intelephense.environment.includePaths": [
+        "vendor" // solo si usan Composer, si no, podés borrarlo
+    ],
+    // Habilitar formateo
+    "intelephense.format.enable": true,
+    // Reconocer archivos PHP
+    "intelephense.files.associations": [
+        "*.php"
+    ],
+    // Ignorar archivos innecesarios
+    "intelephense.files.exclude": [
+        "**/.git/**",
+        "**/node_modules/**",
+        "**/vendor/**/**.md",
+        "**/vendor/**/**.dist"
+    ],
+    // Stubs básicos para PHP vanilla
+    "intelephense.stubs": [
+        "Core",
+        "date",
+        "json",
+        "mbstring",
+        "pcre",
+        "PDO",
+        "Reflection",
+        "session",
+        "SPL",
+        "standard",
+        "superglobals"
+    ],
+    // 🔥 UNIFICAR TABS Y ESPACIOS (esto resuelve tu problema)
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    // Opcional: formatear automáticamente al guardar
+    //"editor.formatOnSave": true
+}

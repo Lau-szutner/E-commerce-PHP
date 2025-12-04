@@ -8,19 +8,18 @@ $consulta = "SELECT * FROM producto";
 
 //preparacion de la consulta: 
 $stmt = $conn->prepare($consulta);
-$stmt -> execute();
+$stmt->execute();
 
-$stmt -> fetch(PDO::FETCH_ASSOC);
+$stmt->fetch(PDO::FETCH_ASSOC);
 
 
 $productos = [];
 
-while($fila = $stmt -> fetch(PDO::FETCH_ASSOC)){
-    $productos[] = $fila;
+while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
+  $productos[] = $fila;
 }
 
 foreach ($productos as $producto) {
-    extract($producto);
-    echo 'Nombre:' . $nombre . '<br>';
+  extract($producto);
+  echo 'Nombre:' . $nombre . '<br>';
 }
-  ?>
