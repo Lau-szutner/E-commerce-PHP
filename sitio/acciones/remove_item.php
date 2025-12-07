@@ -7,10 +7,10 @@ require_once __DIR__ . '/../clases/Carrito.php';
 
 // Recibo los datos del formulario
 $id = $_GET["id"] ?? false;
-$q  = $_GET["q"] ?? 1;
+
 
 if ($id) {
-  Carrito::add_item((int)$id, (int)$q);
+  Carrito::remove_item($id);
 }
 
 // Redirecciono al carrito

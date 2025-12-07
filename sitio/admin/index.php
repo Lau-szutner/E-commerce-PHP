@@ -125,7 +125,6 @@ unset($_SESSION['mensajeFeedbackTipo']);
     <div class="login">
       <form class="d-flex">
         <a href="../index.php?seccion=home" class="btn btn-outline-dark">Home</a>
-
       </form>
     </div>
     </nav>
