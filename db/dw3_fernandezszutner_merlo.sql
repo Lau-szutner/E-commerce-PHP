@@ -283,3 +283,40 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+-- Tabla principal: compras
+CREATE TABLE compras (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    id_usuario INT(10) UNSIGNED NOT NULL,
+    fecha VARCHAR(256),
+    importe DECIMAL(12,2),
+
+    PRIMARY KEY (id),
+
+    CONSTRAINT fk_compras_usuario
+        FOREIGN KEY (id_usuario) REFERENCES usuario(usuario_id)
+        ON UPDATE CASCADE ON DELETE RESTRICT
+);
+
+
+-- Tabla principal: compras
+CREATE TABLE item_x_compra (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    compra_id INT UNSIGNED NOT NULL,
+    item_id INT UNSIGNED NOT NULL,
+    cantidad INT,
+
+    PRIMARY KEY (id),
+
+    INDEX (compra_id),
+    INDEX (item_id),
+
+    CONSTRAINT fk_itemxcompra_compra
+        FOREIGN KEY (compra_id) REFERENCES compras(id)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+
+    CONSTRAINT fk_itemxcompra_item
+        FOREIGN KEY (item_id) REFERENCES producto(producto_id)
+        ON DELETE CASCADE ON UPDATE CASCADE
+);

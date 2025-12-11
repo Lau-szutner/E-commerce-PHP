@@ -68,11 +68,13 @@ $rutaConfig = $rutas[$vista];
             <li><a href="index.php?seccion=productos" class="nav-link px-2 text-black btn-hover-agrandar">Productos</a></li>
             <li><a href="index.php?seccion=servicios" class="nav-link px-2 text-black btn-hover-agrandar">Servicios</a></li>
             <li><a href="index.php?seccion=contacto" class="nav-link px-2 text-black btn-hover-agrandar">Contacto</a></li>
+
           </ul>
         </div>
 
-        <div id="login">
-          <a href="./admin/index.php?seccion=login" class="btn btn-outline-dark ">Login</a>
+        <div id="login" class="d-flex gap-2">
+          <li><a href="index.php?seccion=carrito" class="btn btn-outline-dark">Carrito</a></li>
+          <a href="./admin/index.php?seccion=login" class="btn btn-outline-dark">Login</a>
         </div>
 
       </div>
@@ -95,6 +97,7 @@ $rutaConfig = $rutas[$vista];
         <a href="#"><img src="img/icons/facebook.png" alt="icono de facebook"></a>
         <a href="#"><img src="img/icons/instagram.png" alt="icono de instagram"></a>
         <a href="#"><img src="img/icons/youtube.png" alt="icono de youtube"></a>
+
       </div>
     </div>
 
