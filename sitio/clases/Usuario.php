@@ -103,7 +103,7 @@ class Usuario
    *
    * @return  self
    */
-  public function setEmail($email)
+  public function sjetEmail($email)
   {
     $this->email = $email;
 
