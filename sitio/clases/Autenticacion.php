@@ -15,7 +15,6 @@ class Autenticacion
     $fila = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$fila) {
-
       return false;
     }
 

@@ -23,6 +23,10 @@ $rutas = [
   'carrito' => [
     'titulo' => 'carrito',
   ],
+  'checkout' => [
+    'titulo' => 'Checkout',
+  ],
+
 ];
 
 $vista = $_GET['seccion'] ?? 'home';
@@ -69,8 +73,6 @@ $rutaConfig = $rutas[$vista];
             <li><a href="index.php?seccion=productos" class="nav-link px-2 text-black btn-hover-agrandar">Productos</a></li>
             <li><a href="index.php?seccion=servicios" class="nav-link px-2 text-black btn-hover-agrandar">Servicios</a></li>
             <li><a href="index.php?seccion=contacto" class="nav-link px-2 text-black btn-hover-agrandar">Contacto</a></li>
-
-
           </ul>
         </div>
 
