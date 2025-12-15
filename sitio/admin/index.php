@@ -52,17 +52,12 @@ if (!isset($rutas[$vista])) {
 // Obtenemos las opciones/configuración de la ruta que corresponden a esta vista.
 $rutaConfig = $rutas[$vista];
 
-// Autenticacion
-$auth = new Autenticacion;
-
-//verificacion si requiere autenticacion
 $requiereAutenticacion = $rutaConfig['requiereAutenticacion'] ?? false;
-if ($requiereAutenticacion && !$auth->estaAutenticado()) {
-  $_SESSION['mensajeFeedback'] = "Se necesita haber iniciado sesion para tener acceso a esta pantalla";
-  $_SESSION['mensajeFeedbackTipo'] = "danger";
-  header("Location: index.php?seccion=login");
-  exit;
+
+if ($requiereAutenticacion) {
+  Autenticacion::verify(); // solo logueado
 }
+
 
 $mensajeFeedback = $_SESSION['mensajeFeedback'] ?? null;
 unset($_SESSION['mensajeFeedback']);
@@ -89,7 +84,8 @@ unset($_SESSION['mensajeFeedbackTipo']);
   <header>
     <nav class="navbar navbar-expand-md fixed-top px-5">
       <?php
-      if ($auth->estaAutenticado()):
+      if (Autenticacion::check()):
+
       ?>
         <div class="container-fluid d-flex justify-content-between">
           <a href="../index.php?seccion=home" class="d-inline-flex link-body-emphasis text-decoration-none fs-5">
@@ -108,7 +104,6 @@ unset($_SESSION['mensajeFeedbackTipo']);
             </ul>
           </div>
           <div class="login">
-            <p class="ayuda-formulario">Tu sesión esta activa</p>
             <form action="acciones/logout.php" class="d-flex" method="post">
               <button type="submit" class="btn btn-outline-dark ">Log out</button>
             </form>
@@ -120,7 +115,8 @@ unset($_SESSION['mensajeFeedbackTipo']);
   ?>
 
   <?php
-  if (!$auth->estaAutenticado()):
+  if (!Autenticacion::check()):
+
   ?>
     <div class="login">
       <form class="d-flex">

@@ -31,13 +31,12 @@ if (count($errores) > 0) {
   exit;
 }
 
-// HACER
 
 $auth = new Autenticacion;
-if ($auth->iniciarSesion($email, $password)) {
+if ($auth->log_in($email, $password)) {
   $_SESSION['mensajeFeedback'] = 'Hola! Que bueno tenerte por aquí una vez más';
-  $_SESSION['mensajeFeedBackTipo'] = 'warning';
 
+  $_SESSION['mensajeFeedBackTipo'] = 'warning';
   header('Location: ../index.php?seccion=dashboard');
   exit;
 } else {
