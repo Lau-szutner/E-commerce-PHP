@@ -1,11 +1,10 @@
 <?php
 require_once __DIR__ . '/../../clases/Categoria.php';
 require_once __DIR__ . '/../../clases/Producto.php';
+
 $productosObj = new Producto();
 $productos = $productosObj->productosTodos();
 $categoria = new Categoria();
-
-
 ?>
 
 <section class="container-fluid d-flex flex-column align-items-center">
