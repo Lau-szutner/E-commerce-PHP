@@ -1,6 +1,5 @@
 Alumnos: 
 -Fernandez Szutner Lautaro
--Merlo Maria Macarena
 
 Carrera: Diseño Web 
 Materia: Programación 2
@@ -12,6 +11,7 @@ Docente: Santiago Gallino
 Carácter de entrega: 2do parcial
 
 Credenciales:
+
 -usuario: admin@test.com
 -password: admin123
 -rol: usuario

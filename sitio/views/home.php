@@ -1,8 +1,4 @@
             <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
-
-
-
-
             <section class="container d-flex justify-content-center flex-lg-row flex-column align-items-center" id="productos">
               <div class="d-flex  flex-column ">
                 <h1 class="mb-5">Paw Petshop</h1>

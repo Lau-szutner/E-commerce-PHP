@@ -1,11 +1,9 @@
 <?php
-require_once __DIR__ . '/../../clases/Categoria.php';
-$categorias = (new Categoria)->todos();
 
+require_once __DIR__ . '/../../clases/Categoria.php';
 
 $errores = $_SESSION['errores'] ?? [];
 unset($_SESSION['errores']);
-
 ?>
 
 

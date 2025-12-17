@@ -6,7 +6,7 @@ class Conexion
   protected const DB_USER = "root";
   //CAMBIAR SI SE USA  WINDOWS LA CLAVE DE ROOT ES "" SI SE USA MACOS ES "root"
   protected const DB_PASS = "";
-  protected const DB_NAME = "dw3_fernandezszutner_merlo";
+  protected const DB_NAME = "dw3_dbpawpetshop";
   protected const DB_DSN = "mysql:host=" . self::DB_SERVER . ";dbname=" . self::DB_NAME . ";charset=utf8mb4";
   protected PDO $db_conn; //contiene la conexion a la base de datos
 

@@ -2,75 +2,57 @@
 
 require_once __DIR__ . '/Conexion.php';
 
-
 class Categoria
 {
-  protected int      $categoria_id;
-  protected string   $nombre;
+  protected int $categoria_id;
+  protected string $nombre;
 
-  /**
-   * @return self[]
-   */
-
-  public function todos(): array
+  /* =========================
+     OBTENER TODAS
+  ========================= */
+  public static function todos(): array
   {
     $conn = (new Conexion)->obtenerConexion();
-    $consulta = "SELECT * FROM categoria";
-    $stmt = $conn->prepare($consulta);
+    $sql = "SELECT * FROM categoria ORDER BY nombre";
+    $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_CLASS, self::class);
-    return $stmt->fetchAll();
+    return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
   }
 
-  public function categoriaPorId()
+  /* =========================
+     CREAR
+  ========================= */
+  public static function crear(string $nombre): void
   {
     $conn = (new Conexion)->obtenerConexion();
-    $consulta = "SELECT * FROM categoria
-                    WHERE categoria_id = ?";
+
+    $consulta = "INSERT INTO categoria (nombre) VALUES (?)";
     $stmt = $conn->prepare($consulta);
-    $stmt->execute([$this->categoria_id]);
-    $stmt->setFetchMode(PDO::FETCH_CLASS,);
+    $stmt->execute([$nombre]);
   }
 
 
+  /* =========================
+     ELIMINAR
+  ========================= */
+  public static function eliminar(int $id): bool
+  {
+    $conn = (new Conexion)->obtenerConexion();
+    $sql = "DELETE FROM categoria WHERE categoria_id = ?";
+    $stmt = $conn->prepare($sql);
+    return $stmt->execute([$id]);
+  }
 
-  /**
-   * Get the value of categoria_id
-   */
-  public function getCategoria_id()
+  /* =========================
+     GETTERS
+  ========================= */
+  public function getCategoria_id(): int
   {
     return $this->categoria_id;
   }
 
-  /**
-   * Set the value of categoria_id
-   *
-   * @return  self
-   */
-  public function setCategoria_id($categoria_id)
-  {
-    $this->categoria_id = $categoria_id;
-
-    return $this;
-  }
-
-  /**
-   * Get the value of nombre
-   */
-  public function getNombre()
+  public function getNombre(): string
   {
     return $this->nombre;
-  }
-
-  /**
-   * Set the value of nombre
-   *
-   * @return  self
-   */
-  public function setNombre($nombre)
-  {
-    $this->nombre = $nombre;
-
-    return $this;
   }
 }

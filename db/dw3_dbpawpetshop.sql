@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `dw3_fernandezszutner_merlo`
+-- Base de datos: `dw3_dbpawpetshop`
 --
 
 -- --------------------------------------------------------
@@ -28,8 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categoria` (
-  `categoria_id` tinyint(3) UNSIGNED NOT NULL,
-  `nombre` varchar(200) NOT NULL
+  `categoria_id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(200) NOT NULL,
+  PRIMARY KEY (`categoria_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -169,12 +170,6 @@ INSERT INTO `usuario_tiene_servicios` (`usario_tiene_servicios_id`, `usuario_fk`
 --
 
 --
--- Indices de la tabla `categoria`
---
-ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`categoria_id`);
-
---
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
@@ -212,12 +207,6 @@ ALTER TABLE `usuario_tiene_servicios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `categoria`
---
-ALTER TABLE `categoria`
-  MODIFY `categoria_id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`

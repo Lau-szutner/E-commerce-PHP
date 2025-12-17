@@ -45,6 +45,20 @@ $rutas = [
     'requiereAutenticacion' => true,
   ],
 
+  'usuarios' => [
+    'titulo' => 'Usuarios',
+    'requiereAutenticacion' => true,
+  ],
+
+  'categoria-eliminar' => [
+    'titulo' => 'Eliminar categoría',
+    'requiereAutenticacion' => true,
+  ],
+
+  'categoria-nueva' => [
+    'titulo' => 'Categoria nueva',
+    'requiereAutenticacion' => true,
+  ],
 
 ];
 

@@ -1,12 +1,11 @@
 <?php
 
 // datos de la base 
-
 const DB_SERVER = "localhost";
 const DB_USER = "root";
 //CAMBIAR SI SE USA  WINDOWS LA CLAVE DE ROOT ES "" SI SE USA MACOS ES "root"
 const DB_PASS = "";
-const DB_NAME = "dw3_fernandezszutner_merlo";
+const DB_NAME = "dw3_dbpawpetshop";
 
 const DB_DSN = "mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME . ";charset=utf8mb4";
 
