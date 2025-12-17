@@ -12,6 +12,15 @@ Docente: Santiago Gallino
 Carácter de entrega: 2do parcial
 
 Credenciales:
--usuario: pedromartin@gmail.com
--password: holamundo
+-usuario: admin@test.com
+-password: admin123
+-rol: usuario
+
+-usuario: super@test.com
+-password: admin123
+-rol: usuario
+
+-usuario: usuario@test.com
+-password: admin123
+-rol: usuario
 
