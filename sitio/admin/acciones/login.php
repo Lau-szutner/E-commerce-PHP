@@ -34,15 +34,17 @@ if (count($errores) > 0) {
 
 $auth = new Autenticacion;
 if ($auth->log_in($email, $password)) {
+
   $_SESSION['mensajeFeedback'] = 'Hola! Que bueno tenerte por aquí una vez más';
+  $_SESSION['mensajeFeedbackTipo'] = 'success';
 
-  $_SESSION['mensajeFeedBackTipo'] = 'warning';
-  header('Location: ../index.php?seccion=dashboard');
-  exit;
-} else {
-  $_SESSION['mensajeFeedback'] = 'Los datos ingresados no coinciden con nuestros registros';
-  $_SESSION['mensajeFeedbackTipo'] = "danger";
+  $rol = $_SESSION['loggedIn']['rol'];
 
-  header('Location: ../index.php?seccion=login');
+  if ($rol === 'admin' || $rol === 'superadmin') {
+    header('Location: ../index.php?seccion=dashboard');
+  } else {
+    header('Location: ../../index.php?seccion=home');
+  }
+
   exit;
 }

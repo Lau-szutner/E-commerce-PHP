@@ -103,10 +103,11 @@ $total = Carrito::precio_total();
           $<?= number_format($total, 2, ',', '.') ?>
         </span>
       </h3>
-
       <a href="acciones/checkout.php" class="btn btn-primary btn-lg mt-3 px-4">
         Finalizar compra
       </a>
+
+
 
     </div>
 

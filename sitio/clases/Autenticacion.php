@@ -4,12 +4,11 @@ require_once __DIR__ . '/Usuario.php';
 
 class Autenticacion
 {
-  public function iniciarSesion(string $email, string $password): bool
+  public static function log_in(string $email, string $password): bool
   {
     $conn = (new Conexion)->obtenerConexion();
 
-    $consulta = "SELECT * FROM usuario
-                WHERE email = ?";
+    $consulta = "SELECT * FROM usuario WHERE email = ?";
     $stmt = $conn->prepare($consulta);
     $stmt->execute([$email]);
     $fila = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -18,51 +17,25 @@ class Autenticacion
       return false;
     }
 
-    // Verificacion del password.
     if (!password_verify($password, $fila['password'])) {
       return false;
     }
 
-
-    $_SESSION['id'] = $fila['usuario_id'];
-    return true;
-  }
-
-  public static function log_in(string $usuario, string $password): bool
-  {
-    $datosUsuario = Usuario::usuario_x_email($usuario);
-
-    if (!$datosUsuario) {
-      return false;
-    }
-
-    if (!password_verify($password, $datosUsuario->getPassword())) {
-      return false;
-    }
-
-    $_SESSION["loggedIn"] = [
-      "email" => $datosUsuario->getEmail(),
-      "id"    => $datosUsuario->getUsuario_id(),
-      "rol"   => $datosUsuario->getRol(),
+    $_SESSION['loggedIn'] = [
+      'id'    => $fila['usuario_id'],
+      'email' => $fila['email'],
+      'rol'   => $fila['rol'] ?? 'user',
     ];
 
     return true;
   }
 
-
-  public static function log_out()
+  public static function log_out(): void
   {
-    if (isset($_SESSION['loggedIn'])) {
-      unset($_SESSION['loggedIn']);
-    }
+    session_unset();
+    session_destroy();
   }
 
-
-
-
-
-
-  /* Solo chequea sesión (NO redirige) */
   public static function check(): bool
   {
     return isset($_SESSION['loggedIn']);
@@ -70,9 +43,9 @@ class Autenticacion
 
   public static function verify(bool $admin = false): void
   {
-    if (!isset($_SESSION['loggedIn'])) {
-      $_SESSION['mensajeFeedback'] = "Se necesita haber iniciado sesión";
-      $_SESSION['mensajeFeedbackTipo'] = "danger";
+    if (!self::check()) {
+      $_SESSION['mensajeFeedback'] = "Debés iniciar sesión";
+      $_SESSION['mensajeFeedbackTipo'] = "warning";
       header("Location: index.php?seccion=login");
       exit;
     }
@@ -80,10 +53,10 @@ class Autenticacion
     if ($admin) {
       $rol = $_SESSION['loggedIn']['rol'];
 
-      if ($rol !== 'admin' && $rol !== 'superadmin') {
-        $_SESSION['mensajeFeedback'] = "No tenés permisos para acceder a esta sección";
+      if (!in_array($rol, ['admin', 'superadmin'])) {
+        $_SESSION['mensajeFeedback'] = "No tenés permisos para acceder";
         $_SESSION['mensajeFeedbackTipo'] = "danger";
-        header("Location: index.php?seccion=login");
+        header("Location: index.php?seccion=home");
         exit;
       }
     }

@@ -1,5 +1,10 @@
 <?php
-require_once __DIR__ . '/../clases/Compras.php';
+require_once __DIR__ . '/../../clases/Compras.php';
+
+if ($_SESSION['loggedIn']['rol'] !== 'usuario') {
+  header('Location: index.php?seccion=login');
+  exit;
+}
 
 $userID = $_SESSION['loggedIn']['id'] ?? false;
 
@@ -14,6 +19,13 @@ $compras = Compras::getByUser($userID);
 ?>
 
 <h2>Mis compras</h2>
+
+<div class="mb-4">
+  <a href="../index.php?seccion=home" class="btn btn-outline-primary">
+    ← Volver al Home
+  </a>
+</div>
+
 
 <?php if (isset($_SESSION['mensajeFeedback'])): ?>
   <div class="alert alert-<?= $_SESSION['mensajeFeedbackTipo'] ?>">

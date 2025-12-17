@@ -27,6 +27,8 @@ $rutas = [
     'titulo' => 'Checkout',
   ],
 
+
+
 ];
 
 $vista = $_GET['seccion'] ?? 'home';
