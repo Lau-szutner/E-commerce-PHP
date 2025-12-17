@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-12-2025 a las 18:50:53
+-- Tiempo de generación: 17-12-2025 a las 14:17:17
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -28,9 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categoria` (
-  `categoria_id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(200) NOT NULL,
-  PRIMARY KEY (`categoria_id`)
+  `categoria_id` tinyint(3) UNSIGNED NOT NULL,
+  `nombre` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -43,6 +42,46 @@ INSERT INTO `categoria` (`categoria_id`, `nombre`) VALUES
 (3, 'Camas'),
 (4, 'Alimentos'),
 (7, 'Higiene');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `compras`
+--
+
+CREATE TABLE `compras` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_usuario` int(10) UNSIGNED NOT NULL,
+  `fecha` datetime NOT NULL,
+  `importe` decimal(12,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `compras`
+--
+
+INSERT INTO `compras` (`id`, `id_usuario`, `fecha`, `importe`) VALUES
+(1, 1, '2025-12-17 14:16:57', 47.97);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `item_x_compra`
+--
+
+CREATE TABLE `item_x_compra` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `compra_id` int(10) UNSIGNED NOT NULL,
+  `producto_id` int(10) UNSIGNED NOT NULL,
+  `cantidad` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `item_x_compra`
+--
+
+INSERT INTO `item_x_compra` (`id`, `compra_id`, `producto_id`, `cantidad`) VALUES
+(1, 1, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -67,7 +106,6 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`producto_id`, `nombre`, `categoria_id`, `descripcion`, `precio`, `disponibilidad`, `imagen`, `cuerpo`, `usuario_fk`) VALUES
-(1, 'Pelota para comestibles', 1, 'Pelota de goma con un compartimento para snacks para perros', 9.99, 1, 'pelota.png', '...', NULL),
 (2, 'Comederosss', 2, 'Plato de acero inoxidable para comida de mascotas', 5.50, 1, 'comedero.png', '...', NULL),
 (3, 'Correa 5 mt', 2, 'Correa extensible de 5 metros para perros', 15.99, 1, 'correa5mt.png', '...', NULL),
 (4, 'Correa extensible 15 mt', 2, 'Correa extensible de 15 metros para perros', 25.99, 1, 'correaExtensible.png', '...', NULL),
@@ -170,6 +208,27 @@ INSERT INTO `usuario_tiene_servicios` (`usario_tiene_servicios_id`, `usuario_fk`
 --
 
 --
+-- Indices de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`categoria_id`);
+
+--
+-- Indices de la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_compras_usuario` (`id_usuario`);
+
+--
+-- Indices de la tabla `item_x_compra`
+--
+ALTER TABLE `item_x_compra`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_compra` (`compra_id`),
+  ADD KEY `idx_producto` (`producto_id`);
+
+--
 -- Indices de la tabla `producto`
 --
 ALTER TABLE `producto`
@@ -209,6 +268,24 @@ ALTER TABLE `usuario_tiene_servicios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `categoria_id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `compras`
+--
+ALTER TABLE `compras`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `item_x_compra`
+--
+ALTER TABLE `item_x_compra`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
@@ -241,6 +318,19 @@ ALTER TABLE `usuario_tiene_servicios`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD CONSTRAINT `fk_compras_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`usuario_id`) ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `item_x_compra`
+--
+ALTER TABLE `item_x_compra`
+  ADD CONSTRAINT `fk_item_compra_compra` FOREIGN KEY (`compra_id`) REFERENCES `compras` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_item_compra_item` FOREIGN KEY (`producto_id`) REFERENCES `producto` (`producto_id`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `producto`

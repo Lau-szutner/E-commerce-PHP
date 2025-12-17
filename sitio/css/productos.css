@@ -66,3 +66,30 @@
 .img-dashboard {
   max-width: 200px;
 }
+
+#sectionProductos {
+  background-color: #f8f9fa;
+}
+
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 15px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.contenidoCard img {
+  object-fit: cover;
+  height: 200px;
+}
+
+.productos-btn {
+  transition: transform 0.2s;
+}
+
+.productos-btn:hover {
+  transform: scale(1.05);
+}
