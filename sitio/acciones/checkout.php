@@ -10,7 +10,7 @@ $userID = $_SESSION['loggedIn']['id'] ?? false;
 
 try {
 
-  // ❌ No logueado → login del admin
+  // No logueado → login del admin
   if (!$userID) {
     $_SESSION['mensajeFeedback'] = "Tu sesión expiró. Iniciá sesión nuevamente.";
     $_SESSION['mensajeFeedbackTipo'] = "warning";
@@ -18,7 +18,7 @@ try {
     exit;
   }
 
-  // ❌ Carrito vacío → carrito público
+  //  Carrito vacío → carrito público
   if (empty($items)) {
     $_SESSION['mensajeFeedback'] = "El carrito está vacío.";
     $_SESSION['mensajeFeedbackTipo'] = "warning";
@@ -26,33 +26,31 @@ try {
     exit;
   }
 
-  // ✅ Datos de la compra
+  // Datos de la compra
   $datosCompra = [
     "id_usuario" => $userID,
     "fecha"      => date("Y-m-d H:i:s"),
     "importe"    => Carrito::precio_total()
   ];
 
-  // ✅ Detalle
+  //  Detalle
   $detalleCompra = [];
   foreach ($items as $productoId => $item) {
     $detalleCompra[$productoId] = $item["cantidad"];
   }
 
-  // 💾 Guardar compra
   Checkout::insert_checkout_data($datosCompra, $detalleCompra);
 
-  // 🧹 Vaciar carrito
   Carrito::clear_items();
 
-  // ✅ Éxito → panel de usuario en admin
+
   $_SESSION['mensajeFeedback'] = "La compra se realizó correctamente. Nos pondremos en contacto con usted para coordinar el envío.";
   $_SESSION['mensajeFeedbackTipo'] = "success";
   header("Location: ../admin/index.php?seccion=panel-usuario");
   exit;
 } catch (Exception $e) {
 
-  // ❌ Error → carrito
+
   $_SESSION['mensajeFeedback'] = "No se pudo finalizar la compra.";
   $_SESSION['mensajeFeedbackTipo'] = "danger";
   header("Location: ../index.php?seccion=carrito");

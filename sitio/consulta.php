@@ -6,7 +6,7 @@ $conn = (new Conexion)->obtenerConexion();
 
 $consulta = "SELECT * FROM producto";
 
-//preparacion de la consulta: 
+
 $stmt = $conn->prepare($consulta);
 $stmt->execute();
 

@@ -1,6 +1,6 @@
 <?php
 
-// whitelist
+
 $rutas = [
   'home' => [
     'titulo' => 'Programacion II Parcial 1',

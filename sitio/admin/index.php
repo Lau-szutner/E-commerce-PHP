@@ -1,5 +1,5 @@
 <?php
-//copia del index
+
 session_start();
 
 require_once __DIR__ . '/../clases/Autenticacion.php';
@@ -50,7 +50,7 @@ $rutas = [
 
 $vista = $_GET['seccion'] ?? 'dashboard';
 
-// Verificamos si la vista que nos están pidiendo se permite.
+
 if (!isset($rutas[$vista])) {
   $vista = '404';
 }

@@ -11,7 +11,6 @@ if ($requiereAutenticacion) {
   Autenticacion::verify(false);
 }
 
-
 //captura de los datos del form 
 $nombre         = $_POST['nombre'];
 $descripcion    = $_POST['descripcion'];
@@ -20,7 +19,6 @@ $precio         = $_POST['precio'];
 $disponibilidad = $_POST['disponibilidad'];
 $categoria_id   = $_POST['categoria_id'];
 $imagen         = $_FILES['imagen'];
-
 
 //validacion de datos 
 
@@ -57,13 +55,7 @@ if (count($errores) > 0) {
   exit;
 }
 
-
-//subida de imagen 
-
-
-
-
-try { //anadir con clase Producto
+try {
   (new Producto)->crear([
     'nombre'        => $nombre,
     'descripcion'   => $descripcion,
@@ -75,8 +67,7 @@ try { //anadir con clase Producto
     'usuario_fk'    => 1
   ]);
 
-  //redirecciona a otra pantalla
-  //variables de sesion:  manera de almacenar información sobre un usuario a lo largo de su visita a un sitio web.
+
   $_SESSION['mensajeFeedback'] = 'El producto fue añadido exitosamente!';
   $_SESSION['mensajeFeedbackTipo'] = "success";
   header('Location: ../index.php?seccion=productos');

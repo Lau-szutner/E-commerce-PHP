@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $filtradas[$id] = $q;
   }
 
-  // Actualizar carrito
+
   Carrito::actualizar_cantidades($filtradas);
 }
 

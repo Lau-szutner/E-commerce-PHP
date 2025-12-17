@@ -37,7 +37,6 @@ if (!empty($imagen['tmp_name'])) {
   move_uploaded_file($imagen['tmp_name'], __DIR__ . '/../../img/productos/' . $nombreImagen);
 }
 
-
 // Si hay errores
 if (count($errores) > 0) {
   $_SESSION['mensajeFeedback'] = "Hay errores en tus datos. Revisalos por favor, no cumplen con lo requerido.";
@@ -49,9 +48,6 @@ if (count($errores) > 0) {
   header('Location: ../index.php?seccion=producto-editar&producto_id=' . $producto_id);
   exit;
 }
-
-//imagen
-
 
 try {
   $producto = (new Producto)->productoPorId($producto_id);  //el que habiamos capturado antes

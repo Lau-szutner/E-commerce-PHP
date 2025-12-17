@@ -2,15 +2,12 @@
 require_once __DIR__ . '/../../clases/Producto.php';
 require_once __DIR__ . '/../../clases/Autenticacion.php';
 
-
 session_start();
 
 $auth = new Autenticacion;
 if ($requiereAutenticacion) {
   Autenticacion::verify(false);
 }
-
-
 
 $producto_id = $_GET['producto_id']; // el form es por POST, pero como es la PK, debemos buscarla por GET 
 

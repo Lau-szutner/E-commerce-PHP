@@ -9,10 +9,10 @@ class Checkout
 
 
     try {
-      // 🔐 Iniciar transacción
+      // Iniciar transacción
       $conexion->beginTransaction();
 
-      // 1️⃣ Insertar compra
+      // Insertar compra
       $queryCompra = "
         INSERT INTO compras (id_usuario, fecha, importe)
         VALUES (:id_usuario, :fecha, :importe)
@@ -27,7 +27,7 @@ class Checkout
 
       $compraId = $conexion->lastInsertId();
 
-      // 2️⃣ Insertar productos
+      // Insertar productos
       $queryItem = "
         INSERT INTO item_x_compra (compra_id, producto_id, cantidad)
         VALUES (:compra_id, :producto_id, :cantidad)
@@ -43,11 +43,11 @@ class Checkout
         ]);
       }
 
-      // ✅ Confirmar todo
+      // Confirmar todo
       $conexion->commit();
       return true;
     } catch (Exception $e) {
-      // ❌ Revertir si algo falla
+      // Revertir si algo falla
       $conexion->rollBack();
       return false;
     }

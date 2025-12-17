@@ -7,7 +7,6 @@ $email    = $_POST['email'];
 $password = $_POST['password'];
 
 //Validacion:
-
 $errores = [];
 
 //validando los campos
@@ -19,7 +18,6 @@ if (empty($password)) {
   $errores['password'] = 'La contraseña no puede quedar vacía';
 }
 
-
 if (count($errores) > 0) {
   $_SESSION['mensajeFeedback'] = "Hay errores en tus datos. Revisalos por favor, no cumplen con lo requerido.";
   $_SESSION['mensajeFeedbackTipo'] = "danger";
@@ -30,7 +28,6 @@ if (count($errores) > 0) {
   header('Location: ../index.php?seccion=login');
   exit;
 }
-
 
 $auth = new Autenticacion;
 if ($auth->log_in($email, $password)) {
